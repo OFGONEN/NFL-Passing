@@ -16,6 +16,7 @@ namespace FFStudio
         
 #region Fields (Private, Auto-acquired)
         [ SerializeField ] private Rigidbody[] ragdollRigidbodies;
+        [ SerializeField ] private Collider[] ragdollRigidbody_Colliders;
 #endregion
 
 #region Properties
@@ -34,6 +35,11 @@ namespace FFStudio
 
             ragdollRigidbodies = ragdollRigidbodies.Except( excludeTheseRigidbodies ).ToArray();
 
+            for( var i = 0; i < ragdollRigidbodies.Length; i++ )
+            {
+                ragdollRigidbody_Colliders[ i ] = ragdollRigidbodies[ i ].GetComponent< Collider >();
+            }
+
             if( deactivateOnStart )
                 Deactivate();
         }
@@ -43,15 +49,21 @@ namespace FFStudio
         [ Button() ]
         public void Activate()
         {
-            foreach( var rb in ragdollRigidbodies )
-                rb.isKinematic = false;
+            for( var i = 0; i < ragdollRigidbodies.Length; i++ )
+            {
+				ragdollRigidbodies        [ i ].isKinematic = false;
+				ragdollRigidbody_Colliders[ i ].enabled     = true;
+			}
         }
         
         [ Button()]
         public void Deactivate()
         {
-            foreach( var rb in ragdollRigidbodies )
-                rb.isKinematic = true;
+            for( var i = 0; i < ragdollRigidbodies.Length; i++ )
+            {
+				ragdollRigidbodies        [ i ].isKinematic = true;
+				ragdollRigidbody_Colliders[ i ].enabled     = false;
+			}
         }
 #endregion
 
