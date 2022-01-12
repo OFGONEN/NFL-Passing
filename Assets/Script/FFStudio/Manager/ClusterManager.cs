@@ -43,11 +43,3 @@ public class ClusterManager : MonoBehaviour
 #endif
 #endregion
 }
-
-public interface IClusterEntity
-{
-	void Subscribe_Cluster();
-	void UnSubscribe_Cluster();
-	void OnUpdate_Cluster();
-	int GetInstanceID();
-}

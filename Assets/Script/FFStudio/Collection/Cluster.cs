@@ -17,12 +17,12 @@ public class Cluster : ScriptableObject
 
 	public void Subscribe( IClusterEntity entity )
 	{
-		cluster_entities.Add( entity.GetInstanceID(), entity );
+		cluster_entities.Add( entity.InstanceID(), entity );
 	}
 
 	public void UnSubscribe( IClusterEntity entity )
 	{
-		cluster_entities.Remove( entity.GetInstanceID() );
+		cluster_entities.Remove( entity.InstanceID() );
 	}
 
 	public void UpdateCluster()

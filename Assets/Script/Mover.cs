@@ -6,9 +6,10 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using FFStudio;
 
-public class Mover : MonoBehaviour
+public class Mover : MonoBehaviour , IClusterEntity
 {
 #region Fields
+    [ BoxGroup( "Setup" ) ] public Cluster cluster;
     [ BoxGroup( "Setup" ) ] public SharedFloat movement_speed_shared;
     [ BoxGroup( "Setup" ) ] public Vector3 movement_axis;
 
@@ -20,14 +21,19 @@ public class Mover : MonoBehaviour
 #endregion
 
 #region Unity API
+	private void OnEnable()
+	{
+		Subscribe_Cluster();
+	}
+
+	private void OnDisable()
+	{
+		UnSubscribe_Cluster();
+	}
+
     private void Awake()
     {
 		updateMethod = ExtensionMethods.EmptyMethod;
-	}
-
-    private void Update()
-    {
-		updateMethod(); //TODO(ofg) Make this class use Cluster
 	}
 #endregion
 
@@ -58,6 +64,28 @@ public class Mover : MonoBehaviour
     {
 		var position_current = transform.position;
 		transform.position = Vector3.MoveTowards( position_current, position_current + movement_axis, movement_speed_shared.sharedValue * Time.deltaTime * movement_speed_cofactor );
+	}
+#endregion
+
+#region ICluster
+	public void Subscribe_Cluster()
+	{
+		cluster.Subscribe( this );
+	}
+
+	public void UnSubscribe_Cluster()
+	{
+		cluster.UnSubscribe( this );
+	}
+
+	public void OnUpdate_Cluster()
+	{
+		updateMethod();
+	}
+
+	public int InstanceID()
+	{
+		return GetInstanceID();
 	}
 #endregion
 
