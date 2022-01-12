@@ -14,12 +14,22 @@ namespace FFStudio
 
 		public void Init()
 		{
-			cluster_entities = new Dictionary<int, IClusterEntity>( cluster_count );
+			cluster_entities = new Dictionary< int, IClusterEntity >( cluster_count );
 		}
 
 		public void Subscribe( IClusterEntity entity )
 		{
+#if UNITY_EDITOR
+			IClusterEntity cluster_entity;
+			cluster_entities.TryGetValue( entity.InstanceID(), out cluster_entity );
+
+			if( cluster_entity == null )
+				cluster_entities.Add( entity.InstanceID(), entity );
+			else
+				FFLogger.Log( "Cluster Entity is already Subscribed", ( entity as MonoBehaviour ) );
+#else
 			cluster_entities.Add( entity.InstanceID(), entity );
+#endif
 		}
 
 		public void UnSubscribe( IClusterEntity entity )
