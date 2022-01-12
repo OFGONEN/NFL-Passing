@@ -1,12 +1,14 @@
 /* Created by and for usage of FF Studios (2021). */
 
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace FFStudio
 {
 	public class TriggerListener : ColliderListener< TriggerMessage, Collider >
 	{
 #region Fields (Private)
+		public UnityEvent< Collider > triggerEvent_Unity;
 		private event TriggerMessage triggerEvent;
 #endregion
 
@@ -74,6 +76,7 @@ namespace FFStudio
         protected override void InvokeEvent( Collider other )
 		{
 			triggerEvent?.Invoke( other );
+			triggerEvent_Unity.Invoke( other );
 		}
 #endregion
 
