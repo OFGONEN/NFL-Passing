@@ -30,6 +30,8 @@ namespace FFStudio
 
         [ BoxGroup( "Debug" ) ] public float debug_ui_text_float_height;
         [ BoxGroup( "Debug" ) ] public float debug_ui_text_float_duration;
+
+        [ BoxGroup( "Runner" )] public float runner_movement_buff;
 #endregion
 
 #region Implementation
