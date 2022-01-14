@@ -35,7 +35,9 @@ namespace FFStudio
 
             ragdollRigidbodies = ragdollRigidbodies.Except( excludeTheseRigidbodies ).ToArray();
 
-            for( var i = 0; i < ragdollRigidbodies.Length; i++ )
+			ragdollRigidbody_Colliders = new Collider[ ragdollRigidbodies.Length ];
+
+			for( var i = 0; i < ragdollRigidbodies.Length; i++ )
             {
                 ragdollRigidbody_Colliders[ i ] = ragdollRigidbodies[ i ].GetComponent< Collider >();
             }
