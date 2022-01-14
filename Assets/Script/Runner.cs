@@ -9,7 +9,8 @@ using FFStudio;
 public class Runner : MonoBehaviour
 {
 #region Fields
-    public Mover runner_mover;
+    private Mover runner_mover;
+    private ToggleRagdoll runner_ragdoll;
 #endregion
 
 #region Properties
@@ -18,8 +19,11 @@ public class Runner : MonoBehaviour
 #region Unity API
     private void Awake()
     {
-        runner_mover = GetComponent< Mover >();
-    }
+        runner_mover   = GetComponent< Mover >();
+        runner_ragdoll = GetComponent< ToggleRagdoll >();
+
+		runner_ragdoll.Deactivate();
+	}
 #endregion
 
 #region API
