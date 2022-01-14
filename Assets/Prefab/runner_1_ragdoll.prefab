@@ -842,8 +842,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: runner_1_ragdoll
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5866666021909216657, guid: 8bc516c6ecb117c40867b379fd3a71dd, type: 3}
+    - target: {fileID: 5866666021909216657, guid: 8bc516c6ecb117c40867b379fd3a71dd, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bc516c6ecb117c40867b379fd3a71dd, type: 3}
 --- !u!1 &654425586707887873 stripped
 GameObject:

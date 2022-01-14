@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4984614503668867882}
   - component: {fileID: 4984614503668867880}
   - component: {fileID: 4984614503668867881}
+  - component: {fileID: 922190255570657900}
   m_Layer: 30
   m_Name: runner
   m_TagString: Untagged
@@ -29,7 +30,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5636384445224707551}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -142,3 +144,82 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &922190255570657900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984614503668867887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8a486ce8902e940907ecf5391f3ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  includeRigidbodyOnThisGameObject: 0
+  deactivateOnStart: 1
+  excludeTheseRigidbodies: []
+  ragdollRigidbodies: []
+  ragdollRigidbody_Colliders: []
+--- !u!1001 &7720075564700991256
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4984614503668867883}
+    m_Modifications:
+    - target: {fileID: 2673803476937153223, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673803476937153223, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673803476937153223, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673803476937153223, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673803476937153223, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673803476937153223, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673803476937153223, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673803476937153223, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673803476937153223, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673803476937153223, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673803476937153223, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3337328625954013309, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_Name
+      value: runner_1_ragdoll
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+--- !u!4 &5636384445224707551 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2673803476937153223, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+  m_PrefabInstance: {fileID: 7720075564700991256}
+  m_PrefabAsset: {fileID: 0}
