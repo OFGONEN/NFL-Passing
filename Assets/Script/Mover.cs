@@ -18,6 +18,7 @@ public class Mover : MonoBehaviour , IClusterEntity
 #endregion
 
 #region Properties
+	public float Speed => movement_speed_shared.sharedValue * movement_speed_cofactor;
 #endregion
 
 #region Unity API
