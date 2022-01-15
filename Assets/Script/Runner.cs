@@ -5,12 +5,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using FFStudio;
+using Sirenix.OdinInspector;
 
 public class Runner : MonoBehaviour
 {
 #region Fields
     private Mover runner_mover;
     private ToggleRagdoll runner_ragdoll;
+
+	[ SerializeField, ReadOnly ] private bool hasBall;
 #endregion
 
 #region Properties
@@ -57,14 +60,20 @@ public class Runner : MonoBehaviour
 			runner_mover.Disable(); 
 	}
 
+	[ Button() ]
     public void OnObstacle()
     {
-		bool hasBall = false;
-
         if( hasBall )
+		{
 			runner_mover.Disable();
+			runner_ragdoll.Activate();
+			runner_ragdoll.GiveForce( transform.forward * -1f * GameSettings.Instance.runner_ragdoll_force, ForceMode.Impulse );
+		}
         else
-			runner_mover.Disable(); //TODO(ofg) Play dodge animation, Disable collider
+		{
+			runner_mover.Disable(); //? Maybe dont disable it
+			//TODO(ofg) Play dodge animation, Disable collider, Enable runner on complete
+		}
 	}
 #endregion
 

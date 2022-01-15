@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ef84c6944da9840968801c4f9b8920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runner_mover: {fileID: 0}
+  hasBall: 0
 --- !u!114 &4984614503668867880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8a486ce8902e940907ecf5391f3ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  includeRigidbodyOnThisGameObject: 0
+  includeRigidbodyOnThisGameObject: 1
   deactivateOnStart: 1
   excludeTheseRigidbodies: []
   ragdollRigidbodies: []
