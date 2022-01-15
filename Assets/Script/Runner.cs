@@ -3,8 +3,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using FFStudio;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 
 public class Runner : MonoBehaviour
@@ -13,7 +13,11 @@ public class Runner : MonoBehaviour
     private Mover runner_mover;
     private ToggleRagdoll runner_ragdoll;
 
-	[ SerializeField, ReadOnly ] private bool hasBall;
+	[ SerializeField ] private float movement_dodge_direction; // +1 is right
+	[ SerializeField ] private bool hasBall;
+	// [ SerializeField, ReadOnly ] private bool hasBall;
+
+	private RecycledSequence recycledSequence = new RecycledSequence();
 #endregion
 
 #region Properties
@@ -30,6 +34,7 @@ public class Runner : MonoBehaviour
 #endregion
 
 #region API
+	[ Button() ]
     public void OnLevelStart()
     {
 		runner_mover.Enable();
@@ -71,13 +76,25 @@ public class Runner : MonoBehaviour
 		}
         else
 		{
-			runner_mover.Disable(); //? Maybe dont disable it
-			//TODO(ofg) Play dodge animation, Disable collider, Enable runner on complete
+			var position = transform.position;
+
+			var sequence = DOTween.Sequence();
+			sequence.Append( transform.DOMoveX( position.x + GameSettings.Instance.runner_movement_dodge * movement_dodge_direction, 
+				GameSettings.Instance.runner_movement_dodge_duration / 2f ) );
+			sequence.Append( transform.DOMoveX( position.x,
+				GameSettings.Instance.runner_movement_dodge_duration / 2f ) );
+			
+			recycledSequence.Recycle( sequence, OnDodgeComplete );
+			//TODO(ofg) Play dodge animation, Disable collider, 
 		}
 	}
 #endregion
 
 #region Implementation
+		private void OnDodgeComplete()
+		{
+			//TODO(ofg) Enable collider
+		}
 #endregion
 
 #region Editor Only

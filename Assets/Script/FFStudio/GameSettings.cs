@@ -33,6 +33,8 @@ namespace FFStudio
 
         [ BoxGroup( "Runner" )] public float runner_movement_buff;
         [ BoxGroup( "Runner" )] public float runner_ragdoll_force;
+        [ BoxGroup( "Runner" )] public float runner_movement_dodge;
+        [ BoxGroup( "Runner" )] public float runner_movement_dodge_duration;
 #endregion
 
 #region Implementation
