@@ -17,6 +17,8 @@ namespace FFStudio
 #region Fields (Private, Auto-acquired)
         [ SerializeField ] private Rigidbody[] ragdollRigidbodies;
         [ SerializeField ] private Collider[] ragdollRigidbody_Colliders;
+
+        private Rigidbody mainRigidbody;
 #endregion
 
 #region Properties
@@ -34,6 +36,8 @@ namespace FFStudio
             }
 
             ragdollRigidbodies = ragdollRigidbodies.Except( excludeTheseRigidbodies ).ToArray();
+
+			mainRigidbody = ragdollRigidbodies[ 0 ];
 
 			ragdollRigidbody_Colliders = new Collider[ ragdollRigidbodies.Length ];
 
@@ -67,6 +71,11 @@ namespace FFStudio
 				ragdollRigidbody_Colliders[ i ].enabled     = false;
 			}
         }
+
+        public void GiveForce( Vector3 force, ForceMode mode )
+        {
+			mainRigidbody.AddForce( force, mode );
+		}
 #endregion
 
 #region Implementation
