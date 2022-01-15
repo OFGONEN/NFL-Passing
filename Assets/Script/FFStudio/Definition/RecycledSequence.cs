@@ -9,28 +9,27 @@ namespace FFStudio
 
 		public Sequence Sequence => sequence;
 
-		public void Recycle( UnityMessage onComplete )
+		public void Recycle( Sequence newSequence, UnityMessage onComplete )
 		{
 			sequence = sequence.KillProper();
+			sequence = newSequence;
 
 			this.onComplete = onComplete;
 
-			sequence = DOTween.Sequence();
 			sequence.OnComplete( OnComplete_Safe );
 		}
 
-		public void Recycle()
+		public void Recycle( Sequence newSequence )
 		{
 			sequence = sequence.KillProper();
+			sequence = newSequence;
 
-			sequence = DOTween.Sequence();
 			sequence.OnComplete( OnComplete_Safe );
 		}
 
 		private void OnComplete_Safe()
 		{
 			onComplete?.Invoke();
-
 			sequence = null;
 		}
 	}
