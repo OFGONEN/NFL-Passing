@@ -31,10 +31,11 @@ namespace FFStudio
         [ BoxGroup( "Debug" ) ] public float debug_ui_text_float_height;
         [ BoxGroup( "Debug" ) ] public float debug_ui_text_float_duration;
 
-        [ BoxGroup( "Runner" )] public float runner_movement_buff;
-        [ BoxGroup( "Runner" )] public float runner_ragdoll_force;
-        [ BoxGroup( "Runner" )] public float runner_movement_dodge;
-        [ BoxGroup( "Runner" )] public float runner_movement_dodge_duration;
+        [ BoxGroup( "Runner" ) ] public float runner_movement_speed_buff;
+        [ BoxGroup( "Runner" ) ] public float runner_ragdoll_force;
+        [ BoxGroup( "Runner" ) ] public float runner_movement_speed_dodge;
+        [ BoxGroup( "Runner" ) ] public float runner_movement_dodge_duration; //! Should be long as runner dodge animation
+        [ BoxGroup( "Runner" ) ] public float runner_look_speed;
 #endregion
 
 #region Implementation

@@ -10,6 +10,8 @@ using Sirenix.OdinInspector;
 public class Runner : MonoBehaviour
 {
 #region Fields
+	[ BoxGroup( "Setup" ) ] public SharedReferenceNotifier runner_ballKick_Transform;
+
     private Mover runner_mover;
     private ToggleRagdoll runner_ragdoll;
 
@@ -17,7 +19,10 @@ public class Runner : MonoBehaviour
 	[ SerializeField ] private bool hasBall;
 	// [ SerializeField, ReadOnly ] private bool hasBall;
 
+	private Vector3 runner_ballKick_Position;
+
 	private RecycledSequence recycledSequence = new RecycledSequence();
+	private RecycledTween recycledTween       = new RecycledTween();
 #endregion
 
 #region Properties
@@ -47,7 +52,7 @@ public class Runner : MonoBehaviour
 
     public void OnDoor_Buff_Start()
     {
-		runner_mover.ChangeSpeed( GameSettings.Instance.runner_movement_buff );
+		runner_mover.ChangeSpeed( GameSettings.Instance.runner_movement_speed_buff );
 	}
 
     public void OnDoor_Buff_End()
@@ -55,14 +60,27 @@ public class Runner : MonoBehaviour
 		runner_mover.DefaultSpeed();
 	}
 
+	//! This can happen while runner has a buff
+	[ Button() ]
     public void OnFinishLine()
     {
-		bool hasBall = false;
-
         if( hasBall )
-			runner_mover.Disable(); //TODO(ofg) Run To goal kick position
+		{
+			//TODO(ofg) disable collider
+			runner_mover.Disable();
+			runner_ballKick_Position = ( runner_ballKick_Transform.SharedValue as Transform ).position;
+
+			var target_position_local = transform.InverseTransformPoint( runner_ballKick_Position );
+			var duration = target_position_local.z / runner_mover.Speed; // X / V = T
+
+			recycledTween.Recycle( transform.DOMove( runner_ballKick_Position, duration ).OnUpdate( OnBallKick_Move_Update ),
+				OnBallKick_Move_Complete );
+		}
         else
+		{
 			runner_mover.Disable(); 
+			//TODO(ofg) disable collider
+		}
 	}
 
 	[ Button() ]
@@ -79,7 +97,7 @@ public class Runner : MonoBehaviour
 			var position = transform.position;
 
 			var sequence = DOTween.Sequence();
-			sequence.Append( transform.DOMoveX( position.x + GameSettings.Instance.runner_movement_dodge * movement_dodge_direction, 
+			sequence.Append( transform.DOMoveX( position.x + GameSettings.Instance.runner_movement_speed_dodge * movement_dodge_direction, 
 				GameSettings.Instance.runner_movement_dodge_duration / 2f ) );
 			sequence.Append( transform.DOMoveX( position.x,
 				GameSettings.Instance.runner_movement_dodge_duration / 2f ) );
@@ -88,13 +106,24 @@ public class Runner : MonoBehaviour
 			//TODO(ofg) Play dodge animation, Disable collider, 
 		}
 	}
-#endregion
+	#endregion
 
-#region Implementation
-		private void OnDodgeComplete()
-		{
-			//TODO(ofg) Enable collider
-		}
+	#region Implementation
+	private void OnDodgeComplete()
+	{
+		//TODO(ofg) Enable collider
+	}
+
+	private void OnBallKick_Move_Update()
+	{
+		transform.LookAtOverTimeAxis( runner_ballKick_Position + Vector3.forward, Vector3.up, Time.deltaTime * GameSettings.Instance.runner_look_speed );
+	}
+
+	private void OnBallKick_Move_Complete()
+	{
+		transform.LookAtAxis( runner_ballKick_Position + Vector3.forward, Vector3.up );
+		//TODO(ofg) Play ball kick animation
+	}
 #endregion
 
 #region Editor Only
