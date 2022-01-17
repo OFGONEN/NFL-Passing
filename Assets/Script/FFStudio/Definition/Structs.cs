@@ -25,4 +25,12 @@ namespace FFStudio
 			eventListener.response = unityEvent.Invoke;
 		}
 	}
+
+	[ Serializable ]
+	public struct ParticleData
+	{
+		public string alias;
+		public bool parent;
+		public Vector3 offset;
+	}
 }

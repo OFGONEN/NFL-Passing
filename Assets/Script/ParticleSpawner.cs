@@ -11,11 +11,7 @@ public class ParticleSpawner : MonoBehaviour
 {
 #region Fields
     [ BoxGroup( "Setup" ) ] public ParticleSpawnEvent particle_event;
-    [ BoxGroup( "Setup" ) ] public string particle_alias;
-    [ BoxGroup( "Setup" ) ] public bool particle_parent;
-    [ BoxGroup( "Setup" ) ] public Vector3 particle_offset;
-
-    private Vector3 Position => transform.position + particle_offset;
+    [ BoxGroup( "Setup" ) ] public ParticleData[] particleDatas;
 #endregion
 
 #region Properties
@@ -25,11 +21,12 @@ public class ParticleSpawner : MonoBehaviour
 #endregion
 
 #region API
-    [ Button() ]
-    public void Spawn()
+    public void Spawn( int index )
     {
-		Transform parent = particle_parent ? transform : null;
-		particle_event.Raise( particle_alias, Position, parent );
+		var data = particleDatas[ index ];
+
+		Transform parent = data.parent ? transform : null;
+		particle_event.Raise( data.alias, transform.position + data.offset, parent );
 	}
 #endregion
 
@@ -40,8 +37,12 @@ public class ParticleSpawner : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
-		Handles.Label( transform.position + particle_offset, "Particle Spawn:" + particle_alias );
-		Handles.DrawWireCube( transform.position + particle_offset, Vector3.one / 2f );
+		for( var i = 0; i < particleDatas.Length; i++ )
+		{
+			var data = particleDatas[ i ];
+			Handles.Label( transform.position + data.offset, "Particle Spawn:" + data.alias);
+			Handles.DrawWireCube( transform.position + data.offset, Vector3.one / 4f );
+		}
 	}
 #endif
 #endregion
