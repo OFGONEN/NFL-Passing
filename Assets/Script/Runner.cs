@@ -21,12 +21,12 @@ public class Runner : MonoBehaviour
 	// [ SerializeField, ReadOnly ] private bool hasBall;
 
 	private Vector3 runner_ballKick_Position;
-
 	private RecycledSequence recycledSequence = new RecycledSequence();
 	private RecycledTween recycledTween       = new RecycledTween();
 #endregion
 
 #region Properties
+	public bool HasBall => hasBall;
 #endregion
 
 #region Unity API
