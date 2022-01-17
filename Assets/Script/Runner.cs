@@ -17,7 +17,8 @@ public class Runner : MonoBehaviour
 	private Animator runner_animator; // bool: run, buffed, ball; trigger: throw, dodge, kick
 
 	[ SerializeField ] private float movement_dodge_direction; // +1 is right
-	[ SerializeField ] private bool hasBall;
+	[ SerializeField ] private bool has_Ball;
+	[ SerializeField ] private bool has_Buff;
 	// [ SerializeField, ReadOnly ] private bool hasBall;
 
 	private Vector3 runner_ballKick_Position;
@@ -26,7 +27,8 @@ public class Runner : MonoBehaviour
 #endregion
 
 #region Properties
-	public bool HasBall => hasBall;
+	public bool HasBall => has_Ball;
+	public bool HasBuff => has_Buff;
 #endregion
 
 #region Unity API
@@ -71,7 +73,7 @@ public class Runner : MonoBehaviour
     {
 		runner_animator.SetBool( "buffed", false ); //Info: If finish line can happen while on buff
 
-        if( hasBall )
+        if( has_Ball )
 		{
 			//TODO(ofg) disable collider
 			runner_mover.Disable();
@@ -95,7 +97,7 @@ public class Runner : MonoBehaviour
 	[ Button() ]
     public void OnObstacle()
     {
-        if( hasBall )
+        if( has_Ball )
 		{
 			runner_animator.enabled = false;
 			runner_mover.Disable();
