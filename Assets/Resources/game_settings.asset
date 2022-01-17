@@ -26,5 +26,5 @@ MonoBehaviour:
   runner_movement_speed_buff: 2
   runner_ragdoll_force: 100
   runner_movement_speed_dodge: 1
-  runner_movement_dodge_duration: 1
+  runner_movement_dodge_duration: 0.25
   runner_look_speed: 10
