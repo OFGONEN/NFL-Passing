@@ -22,7 +22,7 @@ public class Gate : MonoBehaviour
 #region API
     public void OnTriggerListener_Enter( Collider collider )
     {
-        var runner = collider.GetComponentInParent< Runner >();
+        var runner = collider.GetComponent< TriggerListener >().AttachedComponent as Runner;
 
         if( runner.HasBall )
 			unityEvent.Invoke();
