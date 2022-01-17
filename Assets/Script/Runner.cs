@@ -14,6 +14,7 @@ public class Runner : MonoBehaviour
 
     private Mover runner_mover;
     private ToggleRagdoll runner_ragdoll;
+	private Animator runner_animator; // bool: run, buffed, ball; trigger: throw, dodge, kick
 
 	[ SerializeField ] private float movement_dodge_direction; // +1 is right
 	[ SerializeField ] private bool hasBall;
@@ -31,8 +32,9 @@ public class Runner : MonoBehaviour
 #region Unity API
     private void Awake()
     {
-        runner_mover   = GetComponent< Mover >();
-        runner_ragdoll = GetComponent< ToggleRagdoll >();
+        runner_mover    = GetComponent< Mover >();
+        runner_ragdoll  = GetComponent< ToggleRagdoll >();
+        runner_animator = GetComponentInChildren< Animator >();
 
 		runner_ragdoll.Deactivate();
 	}
@@ -43,33 +45,39 @@ public class Runner : MonoBehaviour
     public void OnLevelStart()
     {
 		runner_mover.Enable();
+		runner_animator.SetBool( "run", true );
 	}
 
     public void OnLevelFinish()
     {
 		runner_mover.Disable();
+		runner_animator.SetBool( "run", false );
     }
 
     public void OnDoor_Buff_Start()
     {
 		runner_mover.ChangeSpeed( GameSettings.Instance.runner_movement_speed_buff );
+		runner_animator.SetBool( "buffed", true );
 	}
 
     public void OnDoor_Buff_End()
     {
 		runner_mover.DefaultSpeed();
+		runner_animator.SetBool( "buffed", false );
 	}
 
-	//! This can happen while runner has a buff
 	[ Button() ]
     public void OnFinishLine()
     {
+		runner_animator.SetBool( "buffed", false ); //Info: If finish line can happen while on buff
+
         if( hasBall )
 		{
 			//TODO(ofg) disable collider
 			runner_mover.Disable();
 			runner_ballKick_Position = ( runner_ballKick_Transform.SharedValue as Transform ).position;
 
+			// Move towards kick position
 			var target_position_local = transform.InverseTransformPoint( runner_ballKick_Position );
 			var duration = target_position_local.z / runner_mover.Speed; // X / V = T
 
@@ -78,7 +86,8 @@ public class Runner : MonoBehaviour
 		}
         else
 		{
-			runner_mover.Disable(); 
+			runner_mover.Disable();
+			runner_animator.SetBool( "run", false );
 			//TODO(ofg) disable collider
 		}
 	}
@@ -88,6 +97,7 @@ public class Runner : MonoBehaviour
     {
         if( hasBall )
 		{
+			runner_animator.enabled = false;
 			runner_mover.Disable();
 			runner_ragdoll.Activate();
 			runner_ragdoll.GiveForce( transform.forward * -1f * GameSettings.Instance.runner_ragdoll_force, ForceMode.Impulse );
@@ -103,7 +113,8 @@ public class Runner : MonoBehaviour
 				GameSettings.Instance.runner_movement_dodge_duration / 2f ) );
 			
 			recycledSequence.Recycle( sequence, OnDodgeComplete );
-			//TODO(ofg) Play dodge animation, Disable collider, 
+
+			runner_animator.SetTrigger( "dodge" );
 		}
 	}
 	#endregion
@@ -122,7 +133,8 @@ public class Runner : MonoBehaviour
 	private void OnBallKick_Move_Complete()
 	{
 		transform.LookAtAxis( runner_ballKick_Position + Vector3.forward, Vector3.up );
-		//TODO(ofg) Play ball kick animation
+		runner_animator.SetBool( "run", false );
+		runner_animator.SetTrigger( "kick" );
 	}
 #endregion
 
