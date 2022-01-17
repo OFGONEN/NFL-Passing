@@ -28,3 +28,4 @@ MonoBehaviour:
   runner_movement_speed_dodge: 1
   runner_movement_dodge_duration: 0.25
   runner_look_speed: 100
+  obstacle_runner_ragdoll_duration: 2

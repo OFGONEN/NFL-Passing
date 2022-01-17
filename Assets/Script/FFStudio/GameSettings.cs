@@ -36,6 +36,8 @@ namespace FFStudio
         [ BoxGroup( "Runner" ) ] public float runner_movement_speed_dodge;
         [ BoxGroup( "Runner" ) ] public float runner_movement_dodge_duration; //! Should be long as runner dodge animation
         [ BoxGroup( "Runner" ) ] public float runner_look_speed;
+
+        [ BoxGroup( "Obstacle" ) ] public float obstacle_runner_ragdoll_duration;
 #endregion
 
 #region Implementation
