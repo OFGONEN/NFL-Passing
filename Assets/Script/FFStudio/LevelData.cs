@@ -9,7 +9,8 @@ namespace FFStudio
 	public class LevelData : ScriptableObject
     {
 		[ BoxGroup( "Setup" ), NaughtyAttributes.Scene() ] public int sceneIndex;
-
         [ BoxGroup( "Setup" ) ] public bool overrideAsActiveScene;
+
+        [ BoxGroup( "Level" ) ] public float max_score;
     }
 }
