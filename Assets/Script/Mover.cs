@@ -64,7 +64,7 @@ public class Mover : MonoBehaviour , IClusterEntity
     private void OnUpdate_Move()
     {
 		var position_current = transform.position;
-		transform.position = Vector3.MoveTowards( position_current, position_current + movement_axis, movement_speed_shared.sharedValue * Time.deltaTime * movement_speed_cofactor );
+		transform.position = Vector3.MoveTowards( position_current, position_current + transform.TransformDirection( movement_axis ), movement_speed_shared.sharedValue * Time.deltaTime * movement_speed_cofactor );
 	}
 #endregion
 
