@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4984614503668867881}
   - component: {fileID: 922190255570657900}
   m_Layer: 30
-  m_Name: runner
+  m_Name: runner_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: runner_1_ragdoll
       objectReference: {fileID: 0}
+    - target: {fileID: 8357395356227911869, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6b64b1555e2e2a04d81ae06cdafd3fe5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
 --- !u!4 &5636384445224707551 stripped
