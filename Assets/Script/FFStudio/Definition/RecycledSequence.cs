@@ -27,6 +27,11 @@ namespace FFStudio
 			sequence.OnComplete( OnComplete_Safe );
 		}
 
+		public void Kill()
+		{
+			sequence = sequence.KillProper();
+		}
+
 		private void OnComplete_Safe()
 		{
 			onComplete?.Invoke();
