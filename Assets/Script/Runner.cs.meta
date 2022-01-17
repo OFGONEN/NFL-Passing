@@ -3,7 +3,8 @@ guid: 06ef84c6944da9840968801c4f9b8920
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - runner_ballKick_Transform: {fileID: 11400000, guid: 5a901ba55ad0a419a98ec34c983e7583, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
