@@ -15,6 +15,7 @@ public class Mover : MonoBehaviour , IClusterEntity
 
     private float movement_speed_cofactor = 1f;
     private UnityMessage updateMethod;
+	private Vector3 movement_direction;
 #endregion
 
 #region Properties
@@ -35,6 +36,7 @@ public class Mover : MonoBehaviour , IClusterEntity
     private void Awake()
     {
 		updateMethod = ExtensionMethods.EmptyMethod;
+		movement_direction = transform.TransformDirection( movement_axis );
 	}
 #endregion
 
@@ -64,7 +66,7 @@ public class Mover : MonoBehaviour , IClusterEntity
     private void OnUpdate_Move()
     {
 		var position_current = transform.position;
-		transform.position = Vector3.MoveTowards( position_current, position_current + transform.TransformDirection( movement_axis ), movement_speed_shared.sharedValue * Time.deltaTime * movement_speed_cofactor );
+		transform.position = Vector3.MoveTowards( position_current, position_current + movement_direction, movement_speed_shared.sharedValue * Time.deltaTime * movement_speed_cofactor );
 	}
 #endregion
 
