@@ -50,6 +50,7 @@ MonoBehaviour:
   runner_ballKick_Transform: {fileID: 11400000, guid: 5a901ba55ad0a419a98ec34c983e7583, type: 2}
   runner_ball_reference: {fileID: 11400000, guid: 8a8ab89fed60591408c7f8d9ddd2eea1, type: 2}
   runner_ball_parent: {fileID: 9029582214473517778}
+  runner_startWithBall: 0
   movement_dodge_direction: -1
   has_Ball: 0
   has_Buff: 0
@@ -179,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2791014297428572124, guid: cc3d08bdcb9d8bd4796f9fc1a6f966c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.83
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2791014297428572124, guid: cc3d08bdcb9d8bd4796f9fc1a6f966c8, type: 3}
       propertyPath: m_LocalPosition.y
