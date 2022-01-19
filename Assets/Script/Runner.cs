@@ -10,7 +10,9 @@ using Sirenix.OdinInspector;
 public class Runner : MonoBehaviour
 {
 #region Fields
-	[ BoxGroup( "Setup" ) ] public SharedReferenceNotifier runner_ballKick_Transform;
+	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ballKick_Transform;
+	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ball_reference;
+	[ SerializeField, BoxGroup( "Setup" ) ] private Transform runner_ball_parent;
 
     private Mover runner_mover;
     private ToggleRagdoll runner_ragdoll;

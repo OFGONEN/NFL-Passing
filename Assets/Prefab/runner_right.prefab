@@ -48,8 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runner_ballKick_Transform: {fileID: 11400000, guid: 5a901ba55ad0a419a98ec34c983e7583, type: 2}
+  runner_ball_reference: {fileID: 11400000, guid: 8a8ab89fed60591408c7f8d9ddd2eea1, type: 2}
+  runner_ball_parent: {fileID: 2358446229152119593}
   movement_dodge_direction: 1
-  hasBall: 0
+  has_Ball: 0
+  has_Buff: 0
 --- !u!114 &4984614503668867880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,5 +230,10 @@ PrefabInstance:
 --- !u!4 &5636384445224707551 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2673803476937153223, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+  m_PrefabInstance: {fileID: 7720075564700991256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2358446229152119593 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5447620018455200817, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
   m_PrefabInstance: {fileID: 7720075564700991256}
   m_PrefabAsset: {fileID: 0}
