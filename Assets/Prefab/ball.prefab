@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46196cb2d7b2cb4d88167711d093a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrown_start_event: {fileID: 11400000, guid: 1a57f4582eb570a4a82a9d63a9009901, type: 2}
+  thrown_end_event: {fileID: 11400000, guid: a96d682e34410c34784493c736864cfb, type: 2}
 --- !u!114 &3840168481680307280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b3f6725bafc00ba489ef703935894ab2, type: 3}
       propertyPath: m_Name
-      value: prop_nfl_ball
+      value: ball
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3f6725bafc00ba489ef703935894ab2, type: 3}

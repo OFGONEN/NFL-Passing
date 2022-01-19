@@ -29,3 +29,5 @@ MonoBehaviour:
   runner_movement_dodge_duration: 0.25
   runner_look_speed: 100
   obstacle_runner_ragdoll_duration: 2
+  ball_throw_duration: 0.75
+  ball_throw_height: 5.5
