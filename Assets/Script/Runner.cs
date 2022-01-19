@@ -13,6 +13,7 @@ public class Runner : MonoBehaviour
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ballKick_Transform;
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ball_reference;
 	[ SerializeField, BoxGroup( "Setup" ) ] private Transform runner_ball_parent;
+	[ SerializeField, BoxGroup( "Setup" ) ] private bool runner_startWithBall;
 
     private Mover runner_mover;
     private ToggleRagdoll runner_ragdoll;
@@ -21,8 +22,8 @@ public class Runner : MonoBehaviour
 	[ SerializeField ] private float movement_dodge_direction; // +1 is right
 	[ SerializeField ] private bool has_Ball;
 	[ SerializeField ] private bool has_Buff;
-	// [ SerializeField, ReadOnly ] private bool hasBall;
 
+	private Ball runner_ball;
 	private Vector3 runner_ballKick_Position;
 	private RecycledSequence recycledSequence = new RecycledSequence();
 	private RecycledTween recycledTween       = new RecycledTween();
@@ -41,6 +42,15 @@ public class Runner : MonoBehaviour
         runner_animator = GetComponentInChildren< Animator >();
 
 		runner_ragdoll.Deactivate();
+	}
+
+	private void Start()
+	{
+		if( runner_startWithBall )
+		{
+			runner_ball = runner_ball_reference.SharedValue as Ball;
+			runner_ball.Spawn( runner_ball_parent );
+		}
 	}
 #endregion
 
