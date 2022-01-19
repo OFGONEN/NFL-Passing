@@ -10,6 +10,7 @@ using Sirenix.OdinInspector;
 public class Runner : MonoBehaviour
 {
 #region Fields
+	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse input_finger_down_listener;
 	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse ball_thrown_start_listener;
 	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse ball_thrown_end_listener;
 
@@ -43,12 +44,14 @@ public class Runner : MonoBehaviour
 #region Unity API
 	private void OnEnable()
 	{
+		input_finger_down_listener.OnEnable();
 		ball_thrown_start_listener.OnEnable();
 		ball_thrown_end_listener.OnEnable();
 	}
 
 	private void OnDisable()
 	{
+    	input_finger_down_listener.OnDisable();
 		ball_thrown_start_listener.OnDisable();
 		ball_thrown_end_listener.OnDisable();
 	}
@@ -60,6 +63,8 @@ public class Runner : MonoBehaviour
         runner_animator = GetComponentInChildren< Animator >();
 
 		runner_ragdoll.Deactivate();
+
+		input_finger_down_listener.response = ExtensionMethods.EmptyMethod;
 	}
 
 	private void Start()
@@ -181,9 +186,10 @@ public class Runner : MonoBehaviour
 	{
 		runner_ball = runner_ball_reference.SharedValue as Ball;
 		runner_ball.Spawn( runner_ball_parent );
+
+		input_finger_down_listener.response = ThrowBall;
 	}
 
-	[ Button() ]
 	private void ThrowBall()
 	{
 		var runner_other = runner_reference.SharedValue as Runner;
@@ -195,7 +201,7 @@ public class Runner : MonoBehaviour
 
 		ball_thrown_start_listener.response = BallThrown_StartListener;
 		ball_thrown_end_listener.response   = ExtensionMethods.EmptyMethod;
-		//TODO(ofg) disable Input
+		input_finger_down_listener.response = ExtensionMethods.EmptyMethod;
 	}
 
 	private void BallThrown_StartListener()
@@ -209,10 +215,9 @@ public class Runner : MonoBehaviour
 
 	private void BallThrown_EndListener()
 	{
-		//TODO(ofg) enable input
 		runner_animator.SetBool( "ball", false );
 
-		SpawnBall();
+		SpawnBall(); // Enables input
 
 		ball_thrown_start_listener.response = ExtensionMethods.EmptyMethod;
 		ball_thrown_end_listener.response = ExtensionMethods.EmptyMethod;

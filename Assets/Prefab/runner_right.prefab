@@ -79,6 +79,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ef84c6944da9840968801c4f9b8920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input_finger_down_listener:
+    gameEvent: {fileID: 11400000, guid: 7efbf2fac3517be42a29f4b7c4f926f1, type: 2}
   ball_thrown_start_listener:
     gameEvent: {fileID: 11400000, guid: 1a57f4582eb570a4a82a9d63a9009901, type: 2}
   ball_thrown_end_listener:
