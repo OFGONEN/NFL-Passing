@@ -16,6 +16,7 @@ public class Runner : MonoBehaviour
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ballKick_Transform;
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ball_reference;
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_reference;
+	[ SerializeField, BoxGroup( "Setup" ) ] private Transform runner_ball_parent_throw;
 	[ SerializeField, BoxGroup( "Setup" ) ] private Transform runner_ball_parent;
 	[ SerializeField, BoxGroup( "Setup" ) ] private bool runner_startWithBall;
 
@@ -34,6 +35,7 @@ public class Runner : MonoBehaviour
 #endregion
 
 #region Properties
+	public Vector3 BallThrowPosition => runner_ball_parent_throw.position;
 	public bool HasBall => has_Ball;
 	public bool HasBuff => has_Buff;
 #endregion
@@ -184,17 +186,20 @@ public class Runner : MonoBehaviour
 	[ Button() ]
 	private void ThrowBall()
 	{
-		runner_ball.Throw( transform.position + Vector3.right * -2.5f * movement_dodge_direction + Vector3.forward * 5f );
+		var runner_other = runner_reference.SharedValue as Runner;
+		var position     = runner_other.BallThrowPosition;
+		position.z 		 += GameSettings.Instance.ball_throw_duration * runner_mover.Speed;
+
+		runner_ball.Throw( position );
 		has_Ball = false;
 
 		ball_thrown_start_listener.response = BallThrown_StartListener;
-		ball_thrown_end_listener.response = ExtensionMethods.EmptyMethod;
+		ball_thrown_end_listener.response   = ExtensionMethods.EmptyMethod;
 		//TODO(ofg) disable Input
 	}
 
 	private void BallThrown_StartListener()
 	{
-		FFLogger.Log( "Ball Start", gameObject );
 		runner_animator.SetBool( "ball", true );
 		has_Ball = true;
 
@@ -205,7 +210,6 @@ public class Runner : MonoBehaviour
 	private void BallThrown_EndListener()
 	{
 		//TODO(ofg) enable input
-		FFLogger.Log( "Ball End", gameObject );
 		runner_animator.SetBool( "ball", false );
 
 		SpawnBall();

@@ -318,6 +318,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: 0.4963114
       objectReference: {fileID: 0}
+    - target: {fileID: 4984614503668867882, guid: 3aa7aaa1f40e80a4faa47d9db3d57359, type: 3}
+      propertyPath: runner_startWithBall
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4984614503668867883, guid: 3aa7aaa1f40e80a4faa47d9db3d57359, type: 3}
       propertyPath: m_RootOrder
       value: 10

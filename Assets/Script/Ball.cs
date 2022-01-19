@@ -43,7 +43,7 @@ public class Ball : MonoBehaviour
 		sequence.Join( transform.DOMoveX( position.x, duration ) );
 		sequence.Join( transform.DOMoveZ( position.z, duration ) );
 		sequence.Join( transform.DOMoveY( GameSettings.Instance.ball_throw_height, duration / 2f ) );
-		sequence.Join( transform.DOMoveY( current_position.y, duration / 2f ).SetDelay( duration / 2f ) );
+		sequence.Join( transform.DOMoveY( position.y, duration / 2f ).SetDelay( duration / 2f ) );
 
 		sequence.AppendCallback( thrown_end_event.Raise );
 	}
