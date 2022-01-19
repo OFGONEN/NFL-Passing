@@ -73,9 +73,8 @@ public class Runner : MonoBehaviour
 
 		if( runner_startWithBall )
 		{
-			SpawnBall();
+			SpawnBall(); // Enables input
 
-			//TODO(ofg) enable input
 			has_Ball = true;
 			ball_thrown_start_listener.response = ExtensionMethods.EmptyMethod;
 		}
@@ -85,7 +84,6 @@ public class Runner : MonoBehaviour
 #endregion
 
 #region API
-	[ Button() ]
     public void OnLevelStart()
     {
 		runner_mover.Enable();
@@ -110,7 +108,6 @@ public class Runner : MonoBehaviour
 		runner_animator.SetBool( "buffed", false );
 	}
 
-	[ Button() ]
     public void OnFinishLine()
     {
 		runner_animator.SetBool( "buffed", false ); //Info: If finish line can happen while on buff
@@ -136,7 +133,6 @@ public class Runner : MonoBehaviour
 		}
 	}
 
-	[ Button() ]
     public void OnObstacle()
     {
         if( has_Ball )
@@ -161,6 +157,19 @@ public class Runner : MonoBehaviour
 			runner_animator.SetTrigger( "dodge" );
 		}
 	}
+
+	public void ThrowBall()
+	{
+		var runner_other = runner_reference.SharedValue as Runner;
+		var position     = runner_other.BallThrowPosition;
+		position.z 		 += GameSettings.Instance.ball_throw_duration * runner_mover.Speed;
+
+		runner_ball.Throw( position );
+		has_Ball = false;
+
+		ball_thrown_start_listener.response = BallThrown_StartListener;
+		input_finger_down_listener.response = ExtensionMethods.EmptyMethod;
+	}
 #endregion
 
 #region Implementation
@@ -181,26 +190,17 @@ public class Runner : MonoBehaviour
 		runner_animator.SetTrigger( "kick" );
 	}
 
-	[ Button() ]
 	private void SpawnBall()
 	{
 		runner_ball = runner_ball_reference.SharedValue as Ball;
 		runner_ball.Spawn( runner_ball_parent );
 
-		input_finger_down_listener.response = ThrowBall;
+		input_finger_down_listener.response = ThrowAnimation;
 	}
 
-	private void ThrowBall()
+	private void ThrowAnimation()
 	{
-		var runner_other = runner_reference.SharedValue as Runner;
-		var position     = runner_other.BallThrowPosition;
-		position.z 		 += GameSettings.Instance.ball_throw_duration * runner_mover.Speed;
-
-		runner_ball.Throw( position );
-		has_Ball = false;
-
-		ball_thrown_start_listener.response = BallThrown_StartListener;
-		ball_thrown_end_listener.response   = ExtensionMethods.EmptyMethod;
+		runner_animator.SetTrigger( "throw" );
 		input_finger_down_listener.response = ExtensionMethods.EmptyMethod;
 	}
 

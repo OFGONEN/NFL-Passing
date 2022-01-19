@@ -30,6 +30,33 @@ Transform:
   m_Father: {fileID: 4984614503668867883}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7180029751061151672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4190116364267399582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb406554add64614da1a66124f5177a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unityEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4984614503668867882}
+        m_TargetAssemblyTypeName: Runner, Assembly-CSharp
+        m_MethodName: ThrowBall
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4984614503668867887
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +357,11 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: 44f9a66ad1a85c94fafc486a3ceaaf48, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc3d08bdcb9d8bd4796f9fc1a6f966c8, type: 3}
+--- !u!1 &4190116364267399582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3310282184945069414, guid: cc3d08bdcb9d8bd4796f9fc1a6f966c8, type: 3}
+  m_PrefabInstance: {fileID: 1717618280690205944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3561670068515762980 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2791014297428572124, guid: cc3d08bdcb9d8bd4796f9fc1a6f966c8, type: 3}
