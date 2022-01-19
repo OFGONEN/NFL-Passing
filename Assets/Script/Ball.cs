@@ -30,7 +30,7 @@ public class Ball : MonoBehaviour
 		transform.localRotation = Quaternion.identity;
 	}
 
-	public void Thrown( Vector3 position )
+	public void Throw( Vector3 position )
 	{
 		thrown_start_event.Raise();
 

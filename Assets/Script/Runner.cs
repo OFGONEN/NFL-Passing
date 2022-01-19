@@ -10,6 +10,9 @@ using Sirenix.OdinInspector;
 public class Runner : MonoBehaviour
 {
 #region Fields
+	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse ball_thrown_start_listener;
+	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse ball_thrown_end_listener;
+
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ballKick_Transform;
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ball_reference;
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_reference;
@@ -36,6 +39,18 @@ public class Runner : MonoBehaviour
 #endregion
 
 #region Unity API
+	private void OnEnable()
+	{
+		ball_thrown_start_listener.OnEnable();
+		ball_thrown_end_listener.OnEnable();
+	}
+
+	private void OnDisable()
+	{
+		ball_thrown_start_listener.OnDisable();
+		ball_thrown_end_listener.OnDisable();
+	}
+
     private void Awake()
     {
         runner_mover    = GetComponent< Mover >();
@@ -47,10 +62,18 @@ public class Runner : MonoBehaviour
 
 	private void Start()
 	{
+		ball_thrown_end_listener.response = ExtensionMethods.EmptyMethod;
+
 		if( runner_startWithBall )
 		{
 			SpawnBall();
+
+			//TODO(ofg) enable input
+			has_Ball = true;
+			ball_thrown_start_listener.response = ExtensionMethods.EmptyMethod;
 		}
+		else
+			ball_thrown_start_listener.response = BallThrown_StartListener;
 	}
 #endregion
 
@@ -156,6 +179,39 @@ public class Runner : MonoBehaviour
 	{
 		runner_ball = runner_ball_reference.SharedValue as Ball;
 		runner_ball.Spawn( runner_ball_parent );
+	}
+
+	[ Button() ]
+	private void ThrowBall()
+	{
+		runner_ball.Throw( transform.position + Vector3.right * -2.5f * movement_dodge_direction + Vector3.forward * 5f );
+		has_Ball = false;
+
+		ball_thrown_start_listener.response = BallThrown_StartListener;
+		ball_thrown_end_listener.response = ExtensionMethods.EmptyMethod;
+		//TODO(ofg) disable Input
+	}
+
+	private void BallThrown_StartListener()
+	{
+		FFLogger.Log( "Ball Start", gameObject );
+		runner_animator.SetBool( "ball", true );
+		has_Ball = true;
+
+		ball_thrown_start_listener.response = ExtensionMethods.EmptyMethod;
+		ball_thrown_end_listener.response = BallThrown_EndListener;
+	}
+
+	private void BallThrown_EndListener()
+	{
+		//TODO(ofg) enable input
+		FFLogger.Log( "Ball End", gameObject );
+		runner_animator.SetBool( "ball", false );
+
+		SpawnBall();
+
+		ball_thrown_start_listener.response = ExtensionMethods.EmptyMethod;
+		ball_thrown_end_listener.response = ExtensionMethods.EmptyMethod;
 	}
 #endregion
 
