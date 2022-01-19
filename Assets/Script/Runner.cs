@@ -12,6 +12,7 @@ public class Runner : MonoBehaviour
 #region Fields
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ballKick_Transform;
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ball_reference;
+	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_reference;
 	[ SerializeField, BoxGroup( "Setup" ) ] private Transform runner_ball_parent;
 	[ SerializeField, BoxGroup( "Setup" ) ] private bool runner_startWithBall;
 
@@ -48,8 +49,7 @@ public class Runner : MonoBehaviour
 	{
 		if( runner_startWithBall )
 		{
-			runner_ball = runner_ball_reference.SharedValue as Ball;
-			runner_ball.Spawn( runner_ball_parent );
+			SpawnBall();
 		}
 	}
 #endregion
@@ -131,9 +131,9 @@ public class Runner : MonoBehaviour
 			runner_animator.SetTrigger( "dodge" );
 		}
 	}
-	#endregion
+#endregion
 
-	#region Implementation
+#region Implementation
 	private void OnDodgeComplete()
 	{
 		//TODO(ofg) Enable collider
@@ -149,6 +149,13 @@ public class Runner : MonoBehaviour
 		transform.LookAtAxis( runner_ballKick_Position + Vector3.forward, Vector3.up );
 		runner_animator.SetBool( "run", false );
 		runner_animator.SetTrigger( "kick" );
+	}
+
+	[ Button() ]
+	private void SpawnBall()
+	{
+		runner_ball = runner_ball_reference.SharedValue as Ball;
+		runner_ball.Spawn( runner_ball_parent );
 	}
 #endregion
 
