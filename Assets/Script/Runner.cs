@@ -10,9 +10,14 @@ using Sirenix.OdinInspector;
 public class Runner : MonoBehaviour
 {
 #region Fields
+	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse level_start_listener;
+	[ SerializeField, BoxGroup( "Event Listener" ) ] private MultipleEventListenerDelegateResponse level_finish_listener;
+	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse finish_line_listener;
 	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse input_finger_down_listener;
 	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse ball_thrown_start_listener;
 	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse ball_thrown_end_listener;
+	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse buff_start_listener;
+	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse buff_end_listener;
 
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ballKick_Transform;
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ball_reference;
@@ -44,16 +49,30 @@ public class Runner : MonoBehaviour
 #region Unity API
 	private void OnEnable()
 	{
+		level_start_listener.OnEnable();
+		level_finish_listener.OnEnable();
+		finish_line_listener.OnEnable();
+
 		input_finger_down_listener.OnEnable();
 		ball_thrown_start_listener.OnEnable();
 		ball_thrown_end_listener.OnEnable();
+
+		buff_start_listener.OnEnable();
+		buff_end_listener.OnEnable();
 	}
 
 	private void OnDisable()
 	{
+		level_start_listener.OnDisable();
+		level_finish_listener.OnDisable();
+		finish_line_listener.OnDisable();
+
     	input_finger_down_listener.OnDisable();
 		ball_thrown_start_listener.OnDisable();
 		ball_thrown_end_listener.OnDisable();
+
+		buff_start_listener.OnDisable();
+		buff_end_listener.OnDisable();
 	}
 
     private void Awake()
@@ -61,6 +80,12 @@ public class Runner : MonoBehaviour
         runner_mover    = GetComponent< Mover >();
         runner_ragdoll  = GetComponent< ToggleRagdoll >();
         runner_animator = GetComponentInChildren< Animator >();
+
+		level_start_listener.response  = LevelStartListener;
+		level_finish_listener.response = LevelFinishListener;
+		finish_line_listener.response  = FinishLineListener;
+		buff_start_listener.response   = BuffStartListener;
+		buff_end_listener.response     = BuffEndListener;
 
 		runner_ragdoll.Deactivate();
 
@@ -84,55 +109,6 @@ public class Runner : MonoBehaviour
 #endregion
 
 #region API
-    public void OnLevelStart()
-    {
-		runner_mover.Enable();
-		runner_animator.SetBool( "run", true );
-	}
-
-    public void OnLevelFinish()
-    {
-		runner_mover.Disable();
-		runner_animator.SetBool( "run", false );
-    }
-
-    public void OnDoor_Buff_Start()
-    {
-		runner_mover.ChangeSpeed( GameSettings.Instance.runner_movement_speed_buff );
-		runner_animator.SetBool( "buffed", true );
-	}
-
-    public void OnDoor_Buff_End()
-    {
-		runner_mover.DefaultSpeed();
-		runner_animator.SetBool( "buffed", false );
-	}
-
-    public void OnFinishLine()
-    {
-		runner_animator.SetBool( "buffed", false ); //Info: If finish line can happen while on buff
-
-        if( has_Ball )
-		{
-			//TODO(ofg) disable collider
-			runner_mover.Disable();
-			runner_ballKick_Position = ( runner_ballKick_Transform.SharedValue as Transform ).position;
-
-			// Move towards kick position
-			var target_position_local = transform.InverseTransformPoint( runner_ballKick_Position );
-			var duration = target_position_local.z / runner_mover.Speed; // X / V = T
-
-			recycledTween.Recycle( transform.DOMove( runner_ballKick_Position, duration ).OnUpdate( OnBallKick_Move_Update ),
-				OnBallKick_Move_Complete );
-		}
-        else
-		{
-			runner_mover.Disable();
-			runner_animator.SetBool( "run", false );
-			//TODO(ofg) disable collider
-		}
-	}
-
     public void OnObstacle()
     {
         if( has_Ball )
@@ -173,6 +149,55 @@ public class Runner : MonoBehaviour
 #endregion
 
 #region Implementation
+    private void LevelStartListener()
+    {
+		runner_mover.Enable();
+		runner_animator.SetBool( "run", true );
+	}
+
+    private void LevelFinishListener()
+    {
+		runner_mover.Disable();
+		runner_animator.SetBool( "run", false );
+    }
+
+    private void FinishLineListener()
+    {
+		runner_animator.SetBool( "buffed", false ); //Info: If finish line can happen while on buff
+
+        if( has_Ball )
+		{
+			//TODO(ofg) disable collider
+			runner_mover.Disable();
+			runner_ballKick_Position = ( runner_ballKick_Transform.SharedValue as Transform ).position;
+
+			// Move towards kick position
+			var target_position_local = transform.InverseTransformPoint( runner_ballKick_Position );
+			var duration = target_position_local.z / runner_mover.Speed; // X / V = T
+
+			recycledTween.Recycle( transform.DOMove( runner_ballKick_Position, duration ).OnUpdate( OnBallKick_Move_Update ),
+				OnBallKick_Move_Complete );
+		}
+        else
+		{
+			runner_mover.Disable();
+			runner_animator.SetBool( "run", false );
+			//TODO(ofg) disable collider
+		}
+	}
+
+    private void BuffStartListener()
+    {
+		runner_mover.ChangeSpeed( GameSettings.Instance.runner_movement_speed_buff );
+		runner_animator.SetBool( "buffed", true );
+	}
+
+    private void BuffEndListener()
+    {
+		runner_mover.DefaultSpeed();
+		runner_animator.SetBool( "buffed", false );
+	}
+
 	private void OnDodgeComplete()
 	{
 		//TODO(ofg) Enable collider

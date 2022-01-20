@@ -79,12 +79,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ef84c6944da9840968801c4f9b8920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level_start_listener:
+    gameEvent: {fileID: 11400000, guid: efef06bf257ee27438d6c2aab4936226, type: 2}
+  level_finish_listener:
+    gameEvent: {fileID: 0}
+    gameEvents:
+    - {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
+    - {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
+  finish_line_listener:
+    gameEvent: {fileID: 11400000, guid: ef074a6dec065ab4096648782ff14236, type: 2}
   input_finger_down_listener:
     gameEvent: {fileID: 11400000, guid: 7efbf2fac3517be42a29f4b7c4f926f1, type: 2}
   ball_thrown_start_listener:
     gameEvent: {fileID: 11400000, guid: 1a57f4582eb570a4a82a9d63a9009901, type: 2}
   ball_thrown_end_listener:
     gameEvent: {fileID: 11400000, guid: a96d682e34410c34784493c736864cfb, type: 2}
+  buff_start_listener:
+    gameEvent: {fileID: 11400000, guid: d54633ef92add7540b8abaa7fd73ca86, type: 2}
+  buff_end_listener:
+    gameEvent: {fileID: 11400000, guid: 4ddc20130b78da04f8b1ffd6c48d03c8, type: 2}
   runner_ballKick_Transform: {fileID: 11400000, guid: 5a901ba55ad0a419a98ec34c983e7583, type: 2}
   runner_ball_reference: {fileID: 11400000, guid: 8a8ab89fed60591408c7f8d9ddd2eea1, type: 2}
   runner_reference: {fileID: 11400000, guid: f051887d36137c244b73c364742dad4c, type: 2}
