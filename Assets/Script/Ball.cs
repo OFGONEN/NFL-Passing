@@ -10,6 +10,7 @@ using Sirenix.OdinInspector;
 public class Ball : MonoBehaviour
 {
 #region Fields
+	[ BoxGroup( "Setup" ) ] public EventListenerDelegateResponse ball_kick_listener;
 	[ BoxGroup( "Setup" ) ] public GameEvent thrown_start_event;
 	[ BoxGroup( "Setup" ) ] public GameEvent thrown_end_event;
 
@@ -20,6 +21,20 @@ public class Ball : MonoBehaviour
 #endregion
 
 #region Unity API
+	private void OnEnable()
+	{
+		ball_kick_listener.OnEnable();
+	}
+
+	private void OnDisable()
+	{
+		ball_kick_listener.OnDisable();
+	}
+
+	private void Awake()
+	{
+		ball_kick_listener.response = Kick;
+	}
 #endregion
 
 #region API
@@ -50,6 +65,10 @@ public class Ball : MonoBehaviour
 #endregion
 
 #region Implementation
+	public void Kick()
+	{
+		FFLogger.Log( "Kick" );
+	}
 #endregion
 
 #region Editor Only

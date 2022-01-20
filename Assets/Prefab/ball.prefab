@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46196cb2d7b2cb4d88167711d093a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ball_kick_listener:
+    gameEvent: {fileID: 11400000, guid: 7a985fd1fed5ab84c8e602ff80f0c540, type: 2}
   thrown_start_event: {fileID: 11400000, guid: 1a57f4582eb570a4a82a9d63a9009901, type: 2}
   thrown_end_event: {fileID: 11400000, guid: a96d682e34410c34784493c736864cfb, type: 2}
+  ball_kick_position_reference: {fileID: 0}
 --- !u!114 &3840168481680307280
 MonoBehaviour:
   m_ObjectHideFlags: 0
