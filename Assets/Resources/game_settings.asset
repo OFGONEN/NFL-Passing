@@ -31,3 +31,5 @@ MonoBehaviour:
   obstacle_runner_ragdoll_duration: 2
   ball_throw_duration: 0.75
   ball_throw_height: 5.5
+  ball_kick_duration: 5
+  ball_kick_height: 20

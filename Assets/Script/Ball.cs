@@ -10,11 +10,14 @@ using Sirenix.OdinInspector;
 public class Ball : MonoBehaviour
 {
 #region Fields
+	[ BoxGroup( "Setup" ) ] public MultipleEventListenerDelegateResponse level_finish_listener;
 	[ BoxGroup( "Setup" ) ] public EventListenerDelegateResponse ball_kick_listener;
+	[ BoxGroup( "Setup" ) ] public SharedReferenceNotifier ball_target_position_reference;
 	[ BoxGroup( "Setup" ) ] public GameEvent thrown_start_event;
 	[ BoxGroup( "Setup" ) ] public GameEvent thrown_end_event;
 
 	private RecycledSequence thrown_sequence = new RecycledSequence();
+	private Sequence kick_tween;
 #endregion
 
 #region Properties
@@ -24,16 +27,19 @@ public class Ball : MonoBehaviour
 	private void OnEnable()
 	{
 		ball_kick_listener.OnEnable();
+		level_finish_listener.OnEnable();
 	}
 
 	private void OnDisable()
 	{
 		ball_kick_listener.OnDisable();
+		level_finish_listener.OnDisable();
 	}
 
 	private void Awake()
 	{
 		ball_kick_listener.response = Kick;
+		level_finish_listener.response = LevelFinishListener;
 	}
 #endregion
 
@@ -65,9 +71,18 @@ public class Ball : MonoBehaviour
 #endregion
 
 #region Implementation
-	public void Kick()
+	private void Kick()
 	{
-		FFLogger.Log( "Kick" );
+		var position = ( ball_target_position_reference.SharedValue as Transform ).position;
+
+		transform.SetParent( null );
+		kick_tween = transform.DOJump( position, GameSettings.Instance.ball_kick_height, 1, GameSettings.Instance.ball_kick_duration )
+			.SetEase( Ease.Linear );
+	}
+
+	private void LevelFinishListener()
+	{
+		kick_tween = kick_tween.KillProper();
 	}
 #endregion
 

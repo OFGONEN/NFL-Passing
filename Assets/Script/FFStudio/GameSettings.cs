@@ -41,6 +41,8 @@ namespace FFStudio
 
         [ BoxGroup( "Ball" ) ] public float ball_throw_duration;
         [ BoxGroup( "Ball" ) ] public float ball_throw_height;
+        [ BoxGroup( "Ball" ) ] public float ball_kick_duration;
+        [ BoxGroup( "Ball" ) ] public float ball_kick_height;
 #endregion
 
 #region Implementation
