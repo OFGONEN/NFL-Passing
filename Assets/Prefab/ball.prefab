@@ -36,6 +36,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sharedReferenceProperty: {fileID: 11400000, guid: 8a8ab89fed60591408c7f8d9ddd2eea1, type: 2}
   referenceComponent: {fileID: 309674620117873305}
+--- !u!54 &6467688304829546077
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6361705633407174115}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &4016708944230811800
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6361705633407174115}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  m_Radius: 0.1600225
+  m_Height: 0.6138271
+  m_Direction: 2
+  m_Center: {x: 0.005454093, y: 0.07235056, z: -0.004548788}
 --- !u!1001 &6091180346649032882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90,6 +120,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b3f6725bafc00ba489ef703935894ab2, type: 3}
       propertyPath: m_Name
       value: ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b3f6725bafc00ba489ef703935894ab2, type: 3}
+      propertyPath: m_Layer
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3f6725bafc00ba489ef703935894ab2, type: 3}

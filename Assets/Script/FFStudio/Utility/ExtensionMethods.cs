@@ -339,6 +339,11 @@ namespace FFStudio
 
 			return rounded;
 		}
+
+		public static T GiveRandom< T >( this T[] array )
+		{
+			return array[ Random.Range( 0, array.Length ) ];
+		}
 	}
 }
 

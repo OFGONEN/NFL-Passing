@@ -32,4 +32,9 @@ MonoBehaviour:
   ball_throw_duration: 0.75
   ball_throw_height: 5.5
   ball_kick_duration: 5
+  ball_kick_rotation_duration: 1
   ball_kick_height: 20
+  ball_kick_rotation:
+  - {x: 1.99, y: 6, z: 3.69}
+  - {x: 123, y: 123, z: 342}
+  - {x: 86, y: 284, z: 241}
