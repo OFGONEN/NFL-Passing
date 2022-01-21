@@ -104,8 +104,8 @@ public class Ball : MonoBehaviour
 	private void LevelFinishListener()
 	{
 		thrown_sequence.Kill();
-		kick_sequence_movement = kick_sequence_movement.KillProper();
 		kick_tween_rotation    = kick_tween_rotation.KillProper();
+		kick_sequence_movement = kick_sequence_movement.KillProper();
 
 		ball_rigidbody.isKinematic = false;
 		ball_rigidbody.useGravity  = true;
