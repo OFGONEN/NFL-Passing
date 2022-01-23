@@ -99,6 +99,7 @@ public class Runner : MonoBehaviour
 		if( runner_startWithBall )
 		{
 			SpawnBall(); // Enables input
+			input_finger_down_listener.response = ExtensionMethods.EmptyMethod; // Disable input until level start
 
 			has_Ball = true;
 			ball_thrown_start_listener.response = ExtensionMethods.EmptyMethod;
@@ -153,6 +154,9 @@ public class Runner : MonoBehaviour
     {
 		runner_mover.Enable();
 		runner_animator.SetBool( "run", true );
+
+		if( runner_startWithBall )
+			input_finger_down_listener.response = ThrowAnimation;
 	}
 
     private void LevelFinishListener()
