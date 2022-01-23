@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3747325266785291021}
   - component: {fileID: 3747325266785291022}
   - component: {fileID: 1943585445343330057}
+  - component: {fileID: 8887237611830873771}
   m_Layer: 0
   m_Name: main_camera
   m_TagString: MainCamera
@@ -29,7 +30,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4958730759882404027}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -58,7 +60,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -98,3 +100,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sharedReferenceProperty: {fileID: 11400000, guid: 488e798dd6f140e4a84fa7485b885dd3, type: 2}
   referenceComponent: {fileID: 3747325266785291020}
+--- !u!114 &8887237611830873771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3747325266785291023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85a0287a3bc2fbb41901ac1a50df959c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level_finished_listener:
+    gameEvent: {fileID: 0}
+    gameEvents:
+    - {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
+    - {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
+  level_revealed_listener:
+    gameEvent: {fileID: 11400000, guid: be5502ede7f194b4cad32082aa9196eb, type: 2}
+  buff_start_listener:
+    gameEvent: {fileID: 11400000, guid: d54633ef92add7540b8abaa7fd73ca86, type: 2}
+  buff_end_listener:
+    gameEvent: {fileID: 11400000, guid: 4ddc20130b78da04f8b1ffd6c48d03c8, type: 2}
+  level_start_event: {fileID: 11400000, guid: efef06bf257ee27438d6c2aab4936226, type: 2}
+  camera_main: {fileID: 3747325266785291021}
+  camera_transition: {fileID: 4958730759882404027}
+  runner_movement_speed: {fileID: 11400000, guid: d5917c090e5ed294bb377a5c4458076d, type: 2}
+--- !u!1 &6338585521729258523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4958730759882404027}
+  m_Layer: 0
+  m_Name: camera_transition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4958730759882404027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6338585521729258523}
+  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3747325266785291020}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}

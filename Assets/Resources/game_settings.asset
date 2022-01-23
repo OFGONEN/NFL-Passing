@@ -38,3 +38,6 @@ MonoBehaviour:
   - {x: 1.99, y: 6, z: 3.69}
   - {x: 123, y: 123, z: 342}
   - {x: 86, y: 284, z: 241}
+  camera_transition_duration: 1
+  camera_FOV_normal: 60
+  camera_FOV_buff: 90
