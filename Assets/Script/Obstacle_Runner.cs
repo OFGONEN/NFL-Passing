@@ -32,9 +32,11 @@ public class Obstacle_Runner : MonoBehaviour
 #endregion
 
 #region API
-    public void Spawn( Vector3 direction )
+    public void Spawn( Vector3 position, Vector3 direction )
     {
-		transform.forward = direction;
+		gameObject.SetActive( true );
+		transform.position = position;
+		transform.forward  = direction;
 
 		obstacle_mover.Enable();
 		obstacle_ragdoll.Deactivate();
