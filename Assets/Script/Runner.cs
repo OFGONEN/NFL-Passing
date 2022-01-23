@@ -29,6 +29,7 @@ public class Runner : MonoBehaviour
     private Mover runner_mover;
     private ToggleRagdoll runner_ragdoll;
 	private Animator runner_animator; // bool: run, buffed, ball; trigger: throw, dodge, kick
+	private Collider runner_collider;
 
 	[ SerializeField ] private float movement_dodge_direction; // +1 is right
 	[ SerializeField ] private bool has_Ball;
@@ -80,6 +81,7 @@ public class Runner : MonoBehaviour
         runner_mover    = GetComponent< Mover >();
         runner_ragdoll  = GetComponent< ToggleRagdoll >();
         runner_animator = GetComponentInChildren< Animator >();
+		runner_collider = GetComponent< Collider >();
 
 		level_start_listener.response  = LevelStartListener;
 		level_finish_listener.response = LevelFinishListener;
@@ -114,6 +116,7 @@ public class Runner : MonoBehaviour
     {
         if( has_Ball )
 		{
+			runner_collider.enabled = false;
 			runner_animator.enabled = false;
 			runner_mover.Disable();
 			runner_ragdoll.Activate();
@@ -121,6 +124,8 @@ public class Runner : MonoBehaviour
 		}
         else
 		{
+			runner_collider.enabled = false;
+
 			var position = transform.position;
 
 			var sequence = DOTween.Sequence();
@@ -168,10 +173,10 @@ public class Runner : MonoBehaviour
     private void FinishLineListener()
     {
 		runner_animator.SetBool( "buffed", false ); //Info: If finish line can happen while on buff
+		runner_collider.enabled = false;
 
-        if( has_Ball )
+		if( has_Ball )
 		{
-			//TODO(ofg) disable collider
 			runner_mover.Disable();
 			runner_ballKick_Position = ( runner_ballKick_Transform.SharedValue as Transform ).position;
 
@@ -186,7 +191,6 @@ public class Runner : MonoBehaviour
 		{
 			runner_mover.Disable();
 			runner_animator.SetBool( "run", false );
-			//TODO(ofg) disable collider
 		}
 	}
 
@@ -204,7 +208,7 @@ public class Runner : MonoBehaviour
 
 	private void OnDodgeComplete()
 	{
-		//TODO(ofg) Enable collider
+		runner_collider.enabled = true;
 	}
 
 	private void OnBallKick_Move_Update()
