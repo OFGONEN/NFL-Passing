@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1612111905800134488}
   - component: {fileID: 493839403256983123}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: end_gate_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!1 &8319050349397633758
 GameObject:
   m_ObjectHideFlags: 0

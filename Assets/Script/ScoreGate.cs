@@ -12,7 +12,7 @@ public class ScoreGate : MonoBehaviour
 {
 #region Fields
     [ BoxGroup( "Setup" ) ] public float gate_score;
-    [ BoxGroup( "Setup" ) ] public float gate_score_text;
+    [ BoxGroup( "Setup" ) ] public string gate_score_text;
     [ BoxGroup( "Setup" ) ] public UnityEvent level_score_win;
     [ BoxGroup( "Setup" ) ] public UnityEvent level_score_lost;
     [ BoxGroup( "Setup" ) ] public SharedFloatNotifier level_score;
@@ -51,7 +51,7 @@ public class ScoreGate : MonoBehaviour
     private void OnValidate()
     {
         gate_text      = GetComponentInChildren< TextMeshProUGUI >();
-        gate_text.text = gate_score_text.ToString();
+        gate_text.text = gate_score_text;
 	}
 #endif
 #endregion
