@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845d522718bc6fc438e46bf6ae21a3e5, type: 3}
   m_Name: pool_obstacle_runner_2
   m_EditorClassIdentifier: 
-  stackSize: 0
-  pool_entity: {fileID: 0}
+  stackSize: 10
+  pool_entity: {fileID: 2740185124128167008, guid: 12c83bc798c49406e880823eb1605fae, type: 3}

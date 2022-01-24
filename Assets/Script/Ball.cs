@@ -10,17 +10,19 @@ using Sirenix.OdinInspector;
 public class Ball : MonoBehaviour
 {
 #region Fields
-	[ BoxGroup( "Setup" ) ] public MultipleEventListenerDelegateResponse level_finish_listener;
-	[ BoxGroup( "Setup" ) ] public EventListenerDelegateResponse ball_kick_listener;
-	[ BoxGroup( "Setup" ) ] public SharedReferenceNotifier ball_target_position_reference;
-	[ BoxGroup( "Setup" ) ] public GameEvent thrown_start_event;
-	[ BoxGroup( "Setup" ) ] public GameEvent thrown_end_event;
+	[ BoxGroup( "Setup" ), SerializeField ] private MultipleEventListenerDelegateResponse level_finish_listener;
+	[ BoxGroup( "Setup" ), SerializeField ] private EventListenerDelegateResponse ball_kick_listener;
+	[ BoxGroup( "Setup" ), SerializeField ] private SharedReferenceNotifier ball_target_position_reference;
+	[ BoxGroup( "Setup" ), SerializeField ] private ParticleSpawnEvent thrown_particle_event;
+	[ BoxGroup( "Setup" ), SerializeField ] private GameEvent thrown_start_event;
+	[ BoxGroup( "Setup" ), SerializeField ] private GameEvent thrown_end_event;
 
 	private RecycledSequence thrown_sequence = new RecycledSequence();
 	private Sequence kick_sequence_movement;
 	private Tween kick_tween_rotation;
 
 	private Rigidbody ball_rigidbody;
+	private TrailRenderer ball_trail;
 	private Collider ball_collider;
 #endregion
 
@@ -52,6 +54,9 @@ public class Ball : MonoBehaviour
 		ball_collider  = GetComponent< Collider >();
 		ball_collider.isTrigger = true;
 		ball_collider.enabled   = false;
+
+		ball_trail = GetComponent< TrailRenderer >();
+		ball_trail.emitting = false;
 	}
 #endregion
 
@@ -67,6 +72,8 @@ public class Ball : MonoBehaviour
 	{
 		thrown_start_event.Raise();
 
+		ball_trail.emitting = true;
+
 		var current_position = transform.position;
 		transform.SetParent( null );
 
@@ -77,9 +84,8 @@ public class Ball : MonoBehaviour
 		sequence.Join( transform.DOMoveZ( position.z, duration ) );
 		sequence.Join( transform.DOMoveY( GameSettings.Instance.ball_throw_height, duration / 2f ) );
 		sequence.Join( transform.DOMoveY( position.y, duration / 2f ).SetDelay( duration / 2f ) );
-		sequence.AppendCallback( thrown_end_event.Raise );
 
-		thrown_sequence.Recycle( sequence );
+		thrown_sequence.Recycle( sequence, OnThrowComplete );
 	}
 #endregion
 
@@ -88,6 +94,7 @@ public class Ball : MonoBehaviour
 	{
 		ball_kick_listener.response = ExtensionMethods.EmptyMethod;
 		ball_collider.enabled = true;
+		ball_trail.emitting = true;
 
 		var position = ( ball_target_position_reference.SharedValue as Transform ).position;
 
@@ -109,11 +116,26 @@ public class Ball : MonoBehaviour
 
 		ball_rigidbody.isKinematic = false;
 		ball_rigidbody.useGravity  = true;
+
+		ball_collider.enabled = false;
+		ball_trail.emitting   = false;
 	}
 
 	private void OnKickComplete()
 	{
 		kick_tween_rotation.Kill();
+		ball_collider.enabled = false;
+		ball_trail.emitting   = false;
+	}
+
+	private void OnThrowComplete()
+	{
+		thrown_end_event.Raise();
+
+		ball_trail.emitting = false;
+		ball_trail.Clear();
+
+		thrown_particle_event.Raise( "ball", transform.position );
 	}
 #endregion
 
