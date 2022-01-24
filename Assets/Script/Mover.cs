@@ -26,6 +26,7 @@ public class Mover : MonoBehaviour , IClusterEntity
 	private void OnEnable()
 	{
 		Subscribe_Cluster();
+		movement_direction = transform.TransformDirection( movement_axis );
 	}
 
 	private void OnDisable()
@@ -36,7 +37,6 @@ public class Mover : MonoBehaviour , IClusterEntity
     private void Awake()
     {
 		updateMethod = ExtensionMethods.EmptyMethod;
-		movement_direction = transform.TransformDirection( movement_axis );
 	}
 #endregion
 

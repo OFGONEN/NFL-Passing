@@ -58,6 +58,7 @@ namespace FFStudio
             for( var i = 0; i < ragdollRigidbodies.Length; i++ )
             {
 				ragdollRigidbodies        [ i ].isKinematic = false;
+				ragdollRigidbodies        [ i ].useGravity  = true;
 				ragdollRigidbody_Colliders[ i ].enabled     = true;
 			}
         }
@@ -68,6 +69,7 @@ namespace FFStudio
             for( var i = 0; i < ragdollRigidbodies.Length; i++ )
             {
 				ragdollRigidbodies        [ i ].isKinematic = true;
+				ragdollRigidbodies        [ i ].useGravity  = false;
 				ragdollRigidbody_Colliders[ i ].enabled     = false;
 			}
         }
