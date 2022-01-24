@@ -19,6 +19,7 @@ public class Runner : MonoBehaviour
 	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse buff_start_listener;
 	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse buff_end_listener;
 
+	[ SerializeField, BoxGroup( "Setup" ) ] private GameEvent level_failed_event;
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ballKick_Transform;
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ball_reference;
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_reference;
@@ -124,6 +125,8 @@ public class Runner : MonoBehaviour
 			runner_mover.Disable();
 			runner_ragdoll.Activate();
 			runner_ragdoll.GiveForce( transform.forward * -1f * GameSettings.Instance.runner_ragdoll_force, ForceMode.Impulse );
+
+			level_failed_event.Raise();
 		}
         else
 		{
