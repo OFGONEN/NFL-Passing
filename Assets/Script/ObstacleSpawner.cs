@@ -11,7 +11,7 @@ public class ObstacleSpawner : MonoBehaviour
 {
 #region Fields
     [ BoxGroup( "Setup" ) ] public MultipleEventListenerDelegateResponse level_finish_listener;
-    [ BoxGroup( "Setup" ) ] public Obstacle_Runner_Pool obstacle_runner_pool;
+    [ BoxGroup( "Setup" ) ] public Obstacle_Runner_Pool[] obstacle_runner_pool;
     [ BoxGroup( "Setup" ) ] public float[] spawn_delays;
 
     private Collider spawn_collider;
@@ -58,7 +58,7 @@ public class ObstacleSpawner : MonoBehaviour
     {
         if( spawn_index < spawn_delays.Length )
         {
-			var obstacle = obstacle_runner_pool.GetEntity();
+			var obstacle = obstacle_runner_pool.GiveRandom< Obstacle_Runner_Pool >().GetEntity();
 			obstacle.Spawn( transform.position, transform.forward );
 
 			spawn_index++;

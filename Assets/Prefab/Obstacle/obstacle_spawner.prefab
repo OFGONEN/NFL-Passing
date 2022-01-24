@@ -122,6 +122,8 @@ MonoBehaviour:
     gameEvents:
     - {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
     - {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
-  obstacle_runner_pool: {fileID: 11400000, guid: 7a7d5a27270122940b292cd48f243e87, type: 2}
+  obstacle_runner_pool:
+  - {fileID: 11400000, guid: 7a7d5a27270122940b292cd48f243e87, type: 2}
+  - {fileID: 11400000, guid: f28e8141eea0a4818ab3ab7dc753a864, type: 2}
   spawn_delays:
   - 0
