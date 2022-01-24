@@ -118,9 +118,10 @@ public class Runner : MonoBehaviour
 #region API
     public void OnObstacle()
     {
-        if( canDamage )
+		runner_collider.enabled = false;
+
+		if( canDamage )
 		{
-			runner_collider.enabled = false;
 			runner_animator.enabled = false;
 			runner_mover.Disable();
 			runner_ragdoll.Activate();
@@ -130,8 +131,6 @@ public class Runner : MonoBehaviour
 		}
         else
 		{
-			runner_collider.enabled = false;
-
 			var position = transform.position;
 
 			var sequence = DOTween.Sequence();
@@ -203,12 +202,15 @@ public class Runner : MonoBehaviour
 
     private void BuffStartListener()
     {
+		has_Buff = true;
 		runner_mover.ChangeSpeed( GameSettings.Instance.runner_movement_speed_buff );
 		runner_animator.SetBool( "buffed", true );
 	}
 
     private void BuffEndListener()
     {
+		has_Buff = false;
+
 		runner_mover.DefaultSpeed();
 		runner_animator.SetBool( "buffed", false );
 	}
