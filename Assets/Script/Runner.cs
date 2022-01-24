@@ -32,8 +32,8 @@ public class Runner : MonoBehaviour
 	private Collider runner_collider;
 
 	[ SerializeField ] private float movement_dodge_direction; // +1 is right
-	[ SerializeField ] private bool has_Ball;
-	[ SerializeField ] private bool has_Buff;
+	private bool has_Ball;
+	private bool has_Buff;
 
 	private Ball runner_ball;
 	private Vector3 runner_ballKick_Position;

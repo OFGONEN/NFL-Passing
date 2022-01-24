@@ -20,7 +20,7 @@ namespace FFStudio
 
 		private void Awake()
 		{
-			particles = GetComponent< ParticleSystem >();
+			particles = GetComponentInChildren< ParticleSystem >();
 
 			var mainParticle             = particles.main;
 			    mainParticle.stopAction  = ParticleSystemStopAction.Callback;
