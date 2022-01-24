@@ -13,7 +13,7 @@ public class AssetManager : MonoBehaviour
 
 	public Obstacle_Runner_Pool[] obstacle_Runner_Pools;
 
-	private void Awake()
+	private void Start()
 	{
 		for( var i = 0; i < obstacle_Runner_Pools.Length; i++ )
 		{
