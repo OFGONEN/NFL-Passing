@@ -22,9 +22,11 @@ public class CameraController : MonoBehaviour
 	[ BoxGroup( "Setup" ), SerializeField ] private Camera camera_main;
 	[ BoxGroup( "Setup" ), SerializeField ] private Transform camera_transition;
 	[ BoxGroup( "Setup" ), SerializeField ] private SharedFloat runner_movement_speed;
+	[ BoxGroup( "Setup" ), SerializeField ] private ParticleSystem VFX_speedTrails;
 
 	//Private
 	private RecycledSequence recycledSequence = new RecycledSequence();
+	private RecycledTween recycledTween       = new RecycledTween();
 	private UnityMessage updateMethod;
 
 	private float speed_current;
@@ -52,10 +54,10 @@ public class CameraController : MonoBehaviour
 
 	private void Awake()
 	{
-		level_finished_listener.response = ExtensionMethods.EmptyMethod;
-		level_revealed_listener.response = ExtensionMethods.EmptyMethod;
-		buff_start_listener    .response = ExtensionMethods.EmptyMethod;
-		buff_end_listener	   .response = ExtensionMethods.EmptyMethod;
+		level_revealed_listener.response = LevelRevealedResponse;
+		level_finished_listener.response = LevelFinishedResponse;
+		buff_start_listener    .response = BuffStartResponse;
+		buff_end_listener	   .response = BuffEndResponse;
 
 		updateMethod = ExtensionMethods.EmptyMethod;
 	}
@@ -70,7 +72,7 @@ public class CameraController : MonoBehaviour
 #endregion
 
 #region Implementation
-	private void LevelRevealedListener()
+	private void LevelRevealedResponse()
 	{
 		var duration = GameSettings.Instance.camera_transition_duration;
 		var sequence = DOTween.Sequence();
@@ -81,26 +83,26 @@ public class CameraController : MonoBehaviour
 		recycledSequence.Recycle( sequence, OnCameraTransition );
 	}
 
-	private void LevelFinishedListener()
+	private void LevelFinishedResponse()
 	{
 		updateMethod = ExtensionMethods.EmptyMethod;
-		BuffEndListener(); // Just in case
+		BuffEndResponse(); // Just in case
 	}
 
-	private void BuffStartListener()
+	private void BuffStartResponse()
 	{
-		speed_current           = GameSettings.Instance.runner_movement_speed_buff;
-		camera_main.fieldOfView = GameSettings.Instance.camera_FOV_buff;
+		speed_current = GameSettings.Instance.runner_movement_speed_buff;
+		recycledTween.Recycle( camera_main.DOFieldOfView( GameSettings.Instance.camera_FOV_buff, GameSettings.Instance.camera_transition_FOV_duration ) );
 
-		//todo(ofg): ENABLE speed trails particle
+		VFX_speedTrails.Play();
 	}
 
-	private void BuffEndListener()
+	private void BuffEndResponse()
 	{
-		speed_current           = runner_movement_speed.sharedValue;
-		camera_main.fieldOfView = GameSettings.Instance.camera_FOV_normal;
+		speed_current = runner_movement_speed.sharedValue;
+		recycledTween.Recycle( camera_main.DOFieldOfView( GameSettings.Instance.camera_FOV_normal, GameSettings.Instance.camera_transition_FOV_duration ) );
 
-		//todo(ofg): DISABLE speed trails particle
+		VFX_speedTrails.Stop();
 	}
 
 	private void OnUpdate_Movement()
