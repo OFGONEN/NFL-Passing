@@ -33,6 +33,7 @@ public class Runner : MonoBehaviour
 
 	[ SerializeField ] private float movement_dodge_direction; // +1 is right
 	private bool has_Ball;
+	private bool canDamage; // Can be killed by obstacles ?
 	private bool has_Buff;
 
 	private Ball runner_ball;
@@ -44,6 +45,7 @@ public class Runner : MonoBehaviour
 #region Properties
 	public Vector3 BallThrowPosition => runner_ball_parent_throw.position;
 	public bool HasBall => has_Ball;
+	public bool CanDamage => canDamage;
 	public bool HasBuff => has_Buff;
 #endregion
 
@@ -103,7 +105,6 @@ public class Runner : MonoBehaviour
 			SpawnBall(); // Enables input
 			input_finger_down_listener.response = ExtensionMethods.EmptyMethod; // Disable input until level start
 
-			has_Ball = true;
 			ball_thrown_start_listener.response = ExtensionMethods.EmptyMethod;
 		}
 		else
@@ -114,7 +115,7 @@ public class Runner : MonoBehaviour
 #region API
     public void OnObstacle()
     {
-        if( has_Ball )
+        if( canDamage )
 		{
 			runner_collider.enabled = false;
 			runner_animator.enabled = false;
@@ -148,6 +149,7 @@ public class Runner : MonoBehaviour
 
 		runner_ball.Throw( position );
 		has_Ball = false;
+		canDamage = false;
 
 		ball_thrown_start_listener.response = BallThrown_StartListener;
 		input_finger_down_listener.response = ExtensionMethods.EmptyMethod;
@@ -228,6 +230,9 @@ public class Runner : MonoBehaviour
 		runner_ball = runner_ball_reference.SharedValue as Ball;
 		runner_ball.Spawn( runner_ball_parent );
 
+		has_Ball  = true;
+		canDamage = true;
+
 		input_finger_down_listener.response = ThrowAnimation;
 	}
 
@@ -240,7 +245,7 @@ public class Runner : MonoBehaviour
 	private void BallThrown_StartListener()
 	{
 		runner_animator.SetBool( "ball", true );
-		has_Ball = true;
+		canDamage = true;
 
 		ball_thrown_start_listener.response = ExtensionMethods.EmptyMethod;
 		ball_thrown_end_listener.response = BallThrown_EndListener;
