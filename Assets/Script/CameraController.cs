@@ -108,7 +108,7 @@ public class CameraController : MonoBehaviour
 	private void OnUpdate_Movement()
 	{
 		var position_current   = transform.position;
-		    transform.position = Vector3.MoveTowards( position_current, position_current + transform.forward, speed_current * Time.deltaTime );
+		    transform.position = Vector3.MoveTowards( position_current, position_current + Vector3.forward, speed_current * Time.deltaTime );
 	}
 
 	private void OnCameraTransition()
