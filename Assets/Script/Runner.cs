@@ -109,6 +109,8 @@ public class Runner : MonoBehaviour
 		}
 		else
 			ball_thrown_start_listener.response = BallThrown_StartListener;
+
+		runner_collider.enabled = true;
 	}
 #endregion
 
