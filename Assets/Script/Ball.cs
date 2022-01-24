@@ -13,6 +13,7 @@ public class Ball : MonoBehaviour
 	[ BoxGroup( "Setup" ), SerializeField ] private MultipleEventListenerDelegateResponse level_finish_listener;
 	[ BoxGroup( "Setup" ), SerializeField ] private EventListenerDelegateResponse ball_kick_listener;
 	[ BoxGroup( "Setup" ), SerializeField ] private SharedReferenceNotifier ball_target_position_reference;
+	[ BoxGroup( "Setup" ), SerializeField ] private ParticleSpawnEvent thrown_particle_event;
 	[ BoxGroup( "Setup" ), SerializeField ] private GameEvent thrown_start_event;
 	[ BoxGroup( "Setup" ), SerializeField ] private GameEvent thrown_end_event;
 
@@ -116,13 +117,15 @@ public class Ball : MonoBehaviour
 		ball_rigidbody.isKinematic = false;
 		ball_rigidbody.useGravity  = true;
 
-		ball_trail.emitting = false;
+		ball_collider.enabled = false;
+		ball_trail.emitting   = false;
 	}
 
 	private void OnKickComplete()
 	{
 		kick_tween_rotation.Kill();
-		ball_trail.emitting = false;
+		ball_collider.enabled = false;
+		ball_trail.emitting   = false;
 	}
 
 	private void OnThrowComplete()
@@ -131,6 +134,8 @@ public class Ball : MonoBehaviour
 
 		ball_trail.emitting = false;
 		ball_trail.Clear();
+
+		thrown_particle_event.Raise( "ball", transform.position );
 	}
 #endregion
 

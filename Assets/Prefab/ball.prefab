@@ -158,6 +158,7 @@ MonoBehaviour:
   ball_kick_listener:
     gameEvent: {fileID: 11400000, guid: 7a985fd1fed5ab84c8e602ff80f0c540, type: 2}
   ball_target_position_reference: {fileID: 11400000, guid: 9c10b31b99dfb8d4385ad5f6fbd4c85b, type: 2}
+  thrown_particle_event: {fileID: 11400000, guid: fe240f220ab36cc44923227184f9c2a7, type: 2}
   thrown_start_event: {fileID: 11400000, guid: 1a57f4582eb570a4a82a9d63a9009901, type: 2}
   thrown_end_event: {fileID: 11400000, guid: a96d682e34410c34784493c736864cfb, type: 2}
 --- !u!114 &3840168481680307280
