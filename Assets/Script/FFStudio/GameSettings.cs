@@ -47,6 +47,7 @@ namespace FFStudio
         [ BoxGroup( "Ball" ) ] public Vector3[] ball_kick_rotation;
 
         [ BoxGroup( "Camera" ) ] public float camera_transition_duration;
+        [ BoxGroup( "Camera" ) ] public float camera_transition_FOV_duration;
         [ BoxGroup( "Camera" ) ] public float camera_FOV_normal;
         [ BoxGroup( "Camera" ) ] public float camera_FOV_buff;
 #endregion
