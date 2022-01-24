@@ -56,15 +56,14 @@ public class ObstacleSpawner : MonoBehaviour
 #region Implementation
     private void Spawn()
     {
-        if( spawn_index < spawn_delays.Length )
-        {
-			var obstacle = obstacle_runner_pool.GiveRandom< Obstacle_Runner_Pool >().GetEntity();
-			obstacle.Spawn( transform.position, transform.forward );
+		var obstacle = obstacle_runner_pool.GiveRandom<Obstacle_Runner_Pool>().GetEntity();
+		obstacle.Spawn( transform.position, transform.forward );
 
-			spawn_index++;
+		spawn_index++;
+
+		if( spawn_index < spawn_delays.Length - 1 )
 			recycledTween.Recycle( DOVirtual.DelayedCall( spawn_delays[ spawn_index ], Spawn ) );
-		}
-    }
+	}
     private void LevelFinishResponse()
     {
         recycledTween.Kill();
