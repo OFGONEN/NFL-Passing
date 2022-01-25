@@ -118,7 +118,8 @@ public class Ball : MonoBehaviour
 		ball_rigidbody.isKinematic = false;
 		ball_rigidbody.useGravity  = true;
 
-		ball_collider.enabled = false;
+		ball_collider.enabled = true;
+		ball_collider.isTrigger = false;
 		ball_trail.emitting   = false;
 	}
 
