@@ -45,4 +45,4 @@ MonoBehaviour:
   camera_transition_FOV_duration: 0.5
   camera_FOV_normal: 80
   camera_FOV_buff: 100
-  camera_ball_follow_speed: 20
+  camera_ball_follow_speed: 25
