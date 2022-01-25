@@ -99,9 +99,9 @@ public class CameraController : MonoBehaviour
 
 	private void BallKickResponse()
 	{
+		BuffEndResponse();
 		updateMethod  = OnUpdate_Movement;
 		speed_current = GameSettings.Instance.camera_ball_follow_speed;
-		BuffEndResponse();
 	}
 
 	private void BuffStartResponse()

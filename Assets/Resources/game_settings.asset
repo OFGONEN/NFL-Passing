@@ -33,7 +33,7 @@ MonoBehaviour:
   ball_throw_duration: 0.4
   ball_throw_height: 4
   ball_throw_ease: 1
-  ball_kick_duration: 5
+  ball_kick_duration: 2.5
   ball_kick_rotation_duration: 1
   ball_kick_height: 8.5
   ball_kick_ease: 1
@@ -45,4 +45,4 @@ MonoBehaviour:
   camera_transition_FOV_duration: 0.5
   camera_FOV_normal: 80
   camera_FOV_buff: 100
-  camera_ball_follow_speed: 10
+  camera_ball_follow_speed: 20

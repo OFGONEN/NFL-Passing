@@ -410,24 +410,48 @@ PrefabInstance:
       value: 10x
       objectReference: {fileID: 0}
     - target: {fileID: 4094389787034615162, guid: 3d3eb0bdbcea240fdab57c99fd99b5f8, type: 3}
+      propertyPath: level_score_win.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094389787034615162, guid: 3d3eb0bdbcea240fdab57c99fd99b5f8, type: 3}
       propertyPath: level_score_lost.m_PersistentCalls.m_Calls.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094389787034615162, guid: 3d3eb0bdbcea240fdab57c99fd99b5f8, type: 3}
+      propertyPath: level_score_win.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4094389787034615162, guid: 3d3eb0bdbcea240fdab57c99fd99b5f8, type: 3}
       propertyPath: level_score_lost.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4094389787034615162, guid: 3d3eb0bdbcea240fdab57c99fd99b5f8, type: 3}
+      propertyPath: level_score_win.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
+    - target: {fileID: 4094389787034615162, guid: 3d3eb0bdbcea240fdab57c99fd99b5f8, type: 3}
       propertyPath: level_score_lost.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 7283972534759682155}
+    - target: {fileID: 4094389787034615162, guid: 3d3eb0bdbcea240fdab57c99fd99b5f8, type: 3}
+      propertyPath: level_score_win.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4094389787034615162, guid: 3d3eb0bdbcea240fdab57c99fd99b5f8, type: 3}
       propertyPath: level_score_lost.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4094389787034615162, guid: 3d3eb0bdbcea240fdab57c99fd99b5f8, type: 3}
+      propertyPath: level_score_win.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094389787034615162, guid: 3d3eb0bdbcea240fdab57c99fd99b5f8, type: 3}
       propertyPath: level_score_lost.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094389787034615162, guid: 3d3eb0bdbcea240fdab57c99fd99b5f8, type: 3}
+      propertyPath: level_score_win.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: FFStudio.GameEvent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4094389787034615162, guid: 3d3eb0bdbcea240fdab57c99fd99b5f8, type: 3}
       propertyPath: level_score_lost.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -436,6 +460,10 @@ PrefabInstance:
     - target: {fileID: 4094389787034615162, guid: 3d3eb0bdbcea240fdab57c99fd99b5f8, type: 3}
       propertyPath: level_score_lost.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094389787034615162, guid: 3d3eb0bdbcea240fdab57c99fd99b5f8, type: 3}
+      propertyPath: level_score_win.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4094389787034615162, guid: 3d3eb0bdbcea240fdab57c99fd99b5f8, type: 3}
       propertyPath: level_score_lost.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -626,7 +654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7255702487384541497, guid: 6989fc1ecca26134493407d1d4e9639c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7255702487384541497, guid: 6989fc1ecca26134493407d1d4e9639c, type: 3}
       propertyPath: m_LocalRotation.w
