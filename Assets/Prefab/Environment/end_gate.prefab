@@ -161,10 +161,10 @@ MonoBehaviour:
   particleDatas:
   - alias: end_score_win
     parent: 0
-    offset: {x: 0, y: 7, z: 0}
-  - alias: end_score_lost
+    offset: {x: 0, y: 5, z: 0}
+  - alias: obstacle_destroy
     parent: 0
-    offset: {x: 0, y: 7, z: 0}
+    offset: {x: 0, y: 5, z: 0}
 --- !u!1001 &2969414007239952320
 PrefabInstance:
   m_ObjectHideFlags: 0
