@@ -296,6 +296,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: runner_1_ragdoll
       objectReference: {fileID: 0}
+    - target: {fileID: 7869024649161166737, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869024649161166737, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869024649161166737, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869024649161166737, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
+      propertyPath: m_SkinnedMotionVectors
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8357395356227911869, guid: 280ffeb429521d14b89c40b1c4b2fa05, type: 3}
       propertyPath: m_Controller
       value: 

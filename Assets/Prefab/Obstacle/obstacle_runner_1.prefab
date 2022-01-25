@@ -93,6 +93,22 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: -0.000000052154064
       objectReference: {fileID: 0}
+    - target: {fileID: 1470751798365388099, guid: 11ec43a800e4d69488a07441fd948dc7, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470751798365388099, guid: 11ec43a800e4d69488a07441fd948dc7, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470751798365388099, guid: 11ec43a800e4d69488a07441fd948dc7, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470751798365388099, guid: 11ec43a800e4d69488a07441fd948dc7, type: 3}
+      propertyPath: m_SkinnedMotionVectors
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5046574637052722722, guid: 11ec43a800e4d69488a07441fd948dc7, type: 3}
       propertyPath: m_RootOrder
       value: 0

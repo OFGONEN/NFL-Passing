@@ -57,6 +57,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 50584665834536827}
     m_Modifications:
+    - target: {fileID: 902232504627159407, guid: 223c523551e97fa46aeb7aa6b894e42d, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 902232504627159407, guid: 223c523551e97fa46aeb7aa6b894e42d, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 902232504627159407, guid: 223c523551e97fa46aeb7aa6b894e42d, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 902232504627159407, guid: 223c523551e97fa46aeb7aa6b894e42d, type: 3}
+      propertyPath: m_SkinnedMotionVectors
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1750400474134405305, guid: 223c523551e97fa46aeb7aa6b894e42d, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0.16660556

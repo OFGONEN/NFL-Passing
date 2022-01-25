@@ -336,6 +336,22 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.x
       value: 0.17080255
       objectReference: {fileID: 0}
+    - target: {fileID: 5792034021989670458, guid: cc3d08bdcb9d8bd4796f9fc1a6f966c8, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792034021989670458, guid: cc3d08bdcb9d8bd4796f9fc1a6f966c8, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792034021989670458, guid: cc3d08bdcb9d8bd4796f9fc1a6f966c8, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792034021989670458, guid: cc3d08bdcb9d8bd4796f9fc1a6f966c8, type: 3}
+      propertyPath: m_SkinnedMotionVectors
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6123685880102395266, guid: cc3d08bdcb9d8bd4796f9fc1a6f966c8, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0.00000007171184
