@@ -120,6 +120,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
   level_revealed_listener:
     gameEvent: {fileID: 11400000, guid: be5502ede7f194b4cad32082aa9196eb, type: 2}
+  finish_line_listener:
+    gameEvent: {fileID: 11400000, guid: ef074a6dec065ab4096648782ff14236, type: 2}
+  ball_kick_listener:
+    gameEvent: {fileID: 11400000, guid: 7a985fd1fed5ab84c8e602ff80f0c540, type: 2}
   buff_start_listener:
     gameEvent: {fileID: 11400000, guid: d54633ef92add7540b8abaa7fd73ca86, type: 2}
   buff_end_listener:

@@ -51,6 +51,7 @@ namespace FFStudio
         [ BoxGroup( "Camera" ) ] public float camera_transition_FOV_duration;
         [ BoxGroup( "Camera" ) ] public float camera_FOV_normal;
         [ BoxGroup( "Camera" ) ] public float camera_FOV_buff;
+        [ BoxGroup( "Camera" ) ] public float camera_ball_follow_speed;
 #endregion
 
 #region Implementation

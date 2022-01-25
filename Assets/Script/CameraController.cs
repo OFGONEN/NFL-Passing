@@ -14,6 +14,8 @@ public class CameraController : MonoBehaviour
 #region Fields
     [ BoxGroup( "Event Listener" ),SerializeField ] private MultipleEventListenerDelegateResponse level_finished_listener; 
 	[ BoxGroup( "Event Listener" ),SerializeField ] private EventListenerDelegateResponse level_revealed_listener;
+	[ BoxGroup( "Event Listener" ),SerializeField ] private EventListenerDelegateResponse finish_line_listener;
+	[ BoxGroup( "Event Listener" ),SerializeField ] private EventListenerDelegateResponse ball_kick_listener;
 	[ BoxGroup( "Event Listener" ),SerializeField ] private EventListenerDelegateResponse buff_start_listener;
 	[ BoxGroup( "Event Listener" ),SerializeField ] private EventListenerDelegateResponse buff_end_listener;
 
@@ -40,6 +42,8 @@ public class CameraController : MonoBehaviour
 	{
 		level_finished_listener.OnEnable();
 		level_revealed_listener.OnEnable();
+		finish_line_listener   .OnEnable();
+		ball_kick_listener     .OnEnable();
 		buff_start_listener    .OnEnable();
 		buff_end_listener	   .OnEnable();
 	}
@@ -48,6 +52,8 @@ public class CameraController : MonoBehaviour
 	{
 		level_finished_listener.OnDisable();
 		level_revealed_listener.OnDisable();
+		finish_line_listener   .OnDisable();
+		ball_kick_listener     .OnDisable();
 		buff_start_listener    .OnDisable();
 		buff_end_listener	   .OnDisable();
 	}
@@ -56,6 +62,8 @@ public class CameraController : MonoBehaviour
 	{
 		level_revealed_listener.response = LevelRevealedResponse;
 		level_finished_listener.response = LevelFinishedResponse;
+		finish_line_listener.response    = LevelFinishedResponse;
+		ball_kick_listener.response      = BallKickResponse;
 		buff_start_listener    .response = BuffStartResponse;
 		buff_end_listener	   .response = BuffEndResponse;
 
@@ -87,6 +95,13 @@ public class CameraController : MonoBehaviour
 	{
 		updateMethod = ExtensionMethods.EmptyMethod;
 		BuffEndResponse(); // Just in case
+	}
+
+	private void BallKickResponse()
+	{
+		updateMethod  = OnUpdate_Movement;
+		speed_current = GameSettings.Instance.camera_ball_follow_speed;
+		BuffEndResponse();
 	}
 
 	private void BuffStartResponse()
