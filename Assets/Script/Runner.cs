@@ -220,7 +220,7 @@ public class Runner : MonoBehaviour
 		runner_animator.SetBool( "buffed", false );
 
 		if( has_Ball )
-			input_finger_down_listener.response = ThrowBall;
+			input_finger_down_listener.response = ThrowAnimation;
 
 	}
 
