@@ -9,6 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/app.unity
     guid: ad0d37aebbbd4c54396618f1c151ebb7
   - enabled: 1
-    path: Assets/Scenes/game_1.unity
-    guid: 77bd79b3b08633c488ab2694e5563d64
+    path: Assets/Scenes/game_1_a.unity
+    guid: 95b9a41e5ed55e641bda08b578e87f1f
+  - enabled: 1
+    path: Assets/Scenes/game_1_b.unity
+    guid: 6d5046b291dcd6f47a25da7897c2bb70
+  - enabled: 1
+    path: Assets/Scenes/game_1_c.unity
+    guid: 085b9862f8f975d4a96479d95614e77f
+  - enabled: 1
+    path: Assets/Scenes/game_2_a.unity
+    guid: 2b79e46c12aece14fb8766f0ab51d643
+  - enabled: 1
+    path: Assets/Scenes/game_2_b.unity
+    guid: b99caf4c53c9035489c33326844a0e57
+  - enabled: 1
+    path: Assets/Scenes/game_2_c.unity
+    guid: 3d331c7043ec6e14abc6d84b11c538b7
   m_configObjects: {}
