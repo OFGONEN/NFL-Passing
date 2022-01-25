@@ -19,6 +19,7 @@ public class Runner : MonoBehaviour
 	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse buff_start_listener;
 	[ SerializeField, BoxGroup( "Event Listener" ) ] private EventListenerDelegateResponse buff_end_listener;
 
+	[ SerializeField, BoxGroup( "Setup" ) ] private GameEvent level_failed_event;
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ballKick_Transform;
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_ball_reference;
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_reference;
@@ -109,24 +110,27 @@ public class Runner : MonoBehaviour
 		}
 		else
 			ball_thrown_start_listener.response = BallThrown_StartListener;
+
+		runner_collider.enabled = true;
 	}
 #endregion
 
 #region API
     public void OnObstacle()
     {
-        if( canDamage )
+		runner_collider.enabled = false;
+
+		if( canDamage )
 		{
-			runner_collider.enabled = false;
 			runner_animator.enabled = false;
 			runner_mover.Disable();
 			runner_ragdoll.Activate();
 			runner_ragdoll.GiveForce( transform.forward * -1f * GameSettings.Instance.runner_ragdoll_force, ForceMode.Impulse );
+
+			level_failed_event.Raise();
 		}
         else
 		{
-			runner_collider.enabled = false;
-
 			var position = transform.position;
 
 			var sequence = DOTween.Sequence();
@@ -198,12 +202,15 @@ public class Runner : MonoBehaviour
 
     private void BuffStartListener()
     {
+		has_Buff = true;
 		runner_mover.ChangeSpeed( GameSettings.Instance.runner_movement_speed_buff );
 		runner_animator.SetBool( "buffed", true );
 	}
 
     private void BuffEndListener()
     {
+		has_Buff = false;
+
 		runner_mover.DefaultSpeed();
 		runner_animator.SetBool( "buffed", false );
 	}

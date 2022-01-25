@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 19889570}
   - component: {fileID: 19971778}
   m_Layer: 0
-  m_Name: BasicZoneYellow
+  m_Name: BasicZoneRainbow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.26}
-  m_LocalScale: {x: 0.84727436, y: 0.82642704, z: 0.025042996}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.4665112, y: 2.1644266, z: 0.025042996}
   m_Children:
   - {fileID: 469492}
   m_Father: {fileID: 0}
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.9638132, b: 0, a: 1}
+      maxColor: {r: 0.38029408, g: 1, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4783,7 +4783,7 @@ Transform:
   m_GameObject: {fileID: 191888}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0, z: -0.96}
-  m_LocalScale: {x: 1.3248, y: 0.45298, z: 4.7808714}
+  m_LocalScale: {x: 1.0689036, y: 0.45298, z: 4.7808714}
   m_Children: []
   m_Father: {fileID: 433904}
   m_RootOrder: 0
@@ -4978,7 +4978,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.9647059, b: 0, a: 0.1764706}
+      maxColor: {r: 0.36284137, g: 1, b: 0, a: 0.1764706}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
