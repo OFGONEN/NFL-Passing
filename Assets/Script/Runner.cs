@@ -25,6 +25,7 @@ public class Runner : MonoBehaviour
 	[ SerializeField, BoxGroup( "Setup" ) ] private SharedReferenceNotifier runner_reference;
 	[ SerializeField, BoxGroup( "Setup" ) ] private Transform runner_ball_parent_throw;
 	[ SerializeField, BoxGroup( "Setup" ) ] private Transform runner_ball_parent;
+	[ SerializeField, BoxGroup( "Setup" ) ] private GameObject runner_ball_indicator;
 	[ SerializeField, BoxGroup( "Setup" ) ] private bool runner_startWithBall;
 
     private Mover runner_mover;
@@ -101,6 +102,9 @@ public class Runner : MonoBehaviour
 	{
 		ball_thrown_end_listener.response = ExtensionMethods.EmptyMethod;
 
+		runner_collider.enabled = true;
+		runner_ball_indicator.SetActive( false );
+
 		if( runner_startWithBall )
 		{
 			SpawnBall(); // Enables input
@@ -110,8 +114,6 @@ public class Runner : MonoBehaviour
 		}
 		else
 			ball_thrown_start_listener.response = BallThrown_StartListener;
-
-		runner_collider.enabled = true;
 	}
 #endregion
 
@@ -247,6 +249,8 @@ public class Runner : MonoBehaviour
 		has_Ball  = true;
 		canDamage = true;
 
+		runner_ball_indicator.SetActive( true );
+
 		input_finger_down_listener.response = ThrowAnimation;
 	}
 
@@ -254,6 +258,8 @@ public class Runner : MonoBehaviour
 	{
 		runner_animator.SetTrigger( "throw" );
 		input_finger_down_listener.response = ExtensionMethods.EmptyMethod;
+
+		runner_ball_indicator.SetActive( false );
 	}
 
 	private void BallThrown_StartListener()
