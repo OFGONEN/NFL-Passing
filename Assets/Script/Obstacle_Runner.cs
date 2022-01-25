@@ -10,6 +10,7 @@ public class Obstacle_Runner : MonoBehaviour
 {
 #region Fields
     public Obstacle_Runner_Pool pool;
+	public MultipleEventListenerDelegateResponse loadLevelListener;
 
     // Private 
 	private Animator obstacle_animator;
@@ -23,12 +24,24 @@ public class Obstacle_Runner : MonoBehaviour
 #endregion
 
 #region Unity API
+	private void OnEnable()
+	{
+		loadLevelListener.OnEnable();
+	}
+
+	private void OnDisable()
+	{
+		loadLevelListener.OnDisable();
+	}
+
     private void Awake()
     {
         obstacle_animator = GetComponentInChildren< Animator >();
         obstacle_mover    = GetComponent< Mover >();
         obstacle_ragdoll  = GetComponent< ToggleRagdoll >();
-    }
+
+		loadLevelListener.response = ReturnToPool;
+	}
 #endregion
 
 #region API
@@ -61,6 +74,7 @@ public class Obstacle_Runner : MonoBehaviour
 #region Implementation
     private void ReturnToPool()
     {
+		recycledTween.Kill();
 		pool.ReturnEntity( this );
 	}
 #endregion
