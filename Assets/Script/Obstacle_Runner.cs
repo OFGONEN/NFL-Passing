@@ -53,6 +53,7 @@ public class Obstacle_Runner : MonoBehaviour
 
 		GetComponent< Collider >().enabled = true;
 
+		obstacle_animator.enabled = true;
 		obstacle_mover.Enable();
 		obstacle_ragdoll.Deactivate();
 	}
@@ -60,7 +61,9 @@ public class Obstacle_Runner : MonoBehaviour
     public void OnDestroyed()
     {
 		obstacle_mover.Disable();
+		obstacle_animator.enabled = false;
 		obstacle_ragdoll.Activate();
+		obstacle_ragdoll.GiveForce( transform.forward * -1f * GameSettings.Instance.obstacle_runner_ragdoll_force, ForceMode.Impulse );
 		recycledTween.Recycle( DOVirtual.DelayedCall( GameSettings.Instance.obstacle_runner_ragdoll_duration, ReturnToPool ) );
 	}
 

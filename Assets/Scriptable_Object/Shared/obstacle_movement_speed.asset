@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25f6d602a235ff408eabaf21e4a147e, type: 3}
   m_Name: obstacle_movement_speed
   m_EditorClassIdentifier: 
-  sharedValue: 1
+  sharedValue: 5

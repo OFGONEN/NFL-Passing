@@ -25,7 +25,10 @@ public class Obstacle : MonoBehaviour
         var runner = collider.GetComponent< TriggerListener >().AttachedComponent as Runner;
 
         if( runner.HasBuff )
+        {
 			onDestroyEvent.Invoke();
+            FFLogger.Log( "Runner Has Buff", collider.gameObject );
+        }
 		else
         {
 			runner.OnObstacle();
