@@ -14427,4 +14427,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1090ffb03725f44c818ff2a3358ee68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level_load_listener:
+    gameEvent: {fileID: 0}
+    gameEvents:
+    - {fileID: 11400000, guid: f21048912f45f4f4ba5088a96779eb2f, type: 2}
+    - {fileID: 11400000, guid: 0a3e52cd505ecfc4ba9ef153d4f3ba93, type: 2}
   alias: ball
