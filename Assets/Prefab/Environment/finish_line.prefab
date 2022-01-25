@@ -53,6 +53,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &8793776777955220935
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5178964479181889327}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 0.50000757, z: 48}
+  m_Center: {x: 0, y: -0.25000378, z: 24}
 --- !u!1001 &3271982056973935143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -211,7 +224,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7679300090187407868, guid: 923839664ccda2f4a90562b85769831b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: -2910498332082566678, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2910498332082566678, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2910498332082566678, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2910498332082566678, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2910498332082566678, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1791021718884840133, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1791021718884840133, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1791021718884840133, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1791021718884840133, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1791021718884840133, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1791021718884840133, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 923839664ccda2f4a90562b85769831b, type: 3}
       propertyPath: m_Name
@@ -231,7 +288,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4171093379982316829, guid: 923839664ccda2f4a90562b85769831b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395252569804273562, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395252569804273562, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395252569804273562, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395252569804273562, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395252569804273562, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704634513596303297, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704634513596303297, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704634513596303297, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704634513596303297, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704634513596303297, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6849802933790656712, guid: 923839664ccda2f4a90562b85769831b, type: 3}
       propertyPath: m_Layer
@@ -239,7 +336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6849802933790656712, guid: 923839664ccda2f4a90562b85769831b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 8134837689134937748, guid: 923839664ccda2f4a90562b85769831b, type: 3}
       propertyPath: m_Layer
@@ -247,7 +344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8134837689134937748, guid: 923839664ccda2f4a90562b85769831b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 923839664ccda2f4a90562b85769831b, type: 3}
@@ -259,6 +356,11 @@ GameObject:
 --- !u!4 &3508698265160060496 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 923839664ccda2f4a90562b85769831b, type: 3}
+  m_PrefabInstance: {fileID: 3980019912714774971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5178964479181889327 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8134837689134937748, guid: 923839664ccda2f4a90562b85769831b, type: 3}
   m_PrefabInstance: {fileID: 3980019912714774971}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4681227627315463427

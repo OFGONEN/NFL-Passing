@@ -28,6 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1128473458946274869}
+  - {fileID: 2969414007240120624}
   m_Father: {fileID: 6866856776824175247}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44,6 +45,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.8644476, y: 9.704152, z: 0.4062842}
   m_Center: {x: -0.000000834465, y: 4.852076, z: 0.00000011920929}
+--- !u!114 &305309117348770360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6052883492959084597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5cf41ea274c404ea73899fb5b80769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachedComponent: {fileID: 0}
+  triggerEvent_Unity:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4094389787034615162}
+        m_TargetAssemblyTypeName: ScoreGate, Assembly-CSharp
+        m_MethodName: OnBallTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4094389787034615162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,40 +165,12 @@ MonoBehaviour:
   - alias: end_score_lost
     parent: 0
     offset: {x: 0, y: 7, z: 0}
---- !u!114 &305309117348770360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6052883492959084597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c5cf41ea274c404ea73899fb5b80769, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attachedComponent: {fileID: 0}
-  triggerEvent_Unity:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4094389787034615162}
-        m_TargetAssemblyTypeName: ScoreGate, Assembly-CSharp
-        m_MethodName: OnBallTrigger
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &2969414007239952320
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 6866856776824175247}
+    m_TransformParent: {fileID: 7256873551903690555}
     m_Modifications:
     - target: {fileID: 183362, guid: 92c260449d09d0a41a1322afd3d17c45, type: 3}
       propertyPath: m_Name
@@ -205,15 +206,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 433904, guid: 92c260449d09d0a41a1322afd3d17c45, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 433904, guid: 92c260449d09d0a41a1322afd3d17c45, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 433904, guid: 92c260449d09d0a41a1322afd3d17c45, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 433904, guid: 92c260449d09d0a41a1322afd3d17c45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -241,6 +242,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92c260449d09d0a41a1322afd3d17c45, type: 3}
+--- !u!4 &2969414007240120624 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 433904, guid: 92c260449d09d0a41a1322afd3d17c45, type: 3}
+  m_PrefabInstance: {fileID: 2969414007239952320}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3475499798523275843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -421,6 +427,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 97de4a87ebe17144580827d405684fd3, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 97de4a87ebe17144580827d405684fd3, type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 97de4a87ebe17144580827d405684fd3, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 97de4a87ebe17144580827d405684fd3, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 97de4a87ebe17144580827d405684fd3, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 97de4a87ebe17144580827d405684fd3, type: 3}
       propertyPath: m_Name
       value: end_gate
@@ -431,7 +457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 97de4a87ebe17144580827d405684fd3, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97de4a87ebe17144580827d405684fd3, type: 3}

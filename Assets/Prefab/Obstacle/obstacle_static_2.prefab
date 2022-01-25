@@ -117,9 +117,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 062ea4958e9dafe48a4363ea8878d101, type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 062ea4958e9dafe48a4363ea8878d101, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 062ea4958e9dafe48a4363ea8878d101, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 062ea4958e9dafe48a4363ea8878d101, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 062ea4958e9dafe48a4363ea8878d101, type: 3}
       propertyPath: m_Name
       value: prop_obstacle_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 062ea4958e9dafe48a4363ea8878d101, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 062ea4958e9dafe48a4363ea8878d101, type: 3}
