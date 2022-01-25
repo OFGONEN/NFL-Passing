@@ -16,9 +16,9 @@ MonoBehaviour:
   clientTokens:
   - 
   appIds:
-  - 1237721368721
+  - 1059563661276185
   appLabels:
-  - Beni Degistir
+  - NFL Passing
   cookie: 1
   logging: 1
   status: 1
