@@ -1,6 +1,7 @@
 ﻿/* Created by and for usage of FF Studios (2021). */
 
 using UnityEngine;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 
 namespace FFStudio
@@ -42,9 +43,11 @@ namespace FFStudio
 
         [ BoxGroup( "Ball" ) ] public float ball_throw_duration;
         [ BoxGroup( "Ball" ) ] public float ball_throw_height;
+        [ BoxGroup( "Ball" ) ] public Ease ball_throw_ease = Ease.Linear;
         [ BoxGroup( "Ball" ) ] public float ball_kick_duration;
         [ BoxGroup( "Ball" ) ] public float ball_kick_rotation_duration;
         [ BoxGroup( "Ball" ) ] public float ball_kick_height;
+        [ BoxGroup( "Ball" ) ] public Ease ball_kick_ease = Ease.Linear;
         [ BoxGroup( "Ball" ) ] public Vector3[] ball_kick_rotation;
 
         [ BoxGroup( "Camera" ) ] public float camera_transition_duration;

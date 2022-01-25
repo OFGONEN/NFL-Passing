@@ -84,6 +84,7 @@ public class Ball : MonoBehaviour
 		sequence.Join( transform.DOMoveZ( position.z, duration ) );
 		sequence.Join( transform.DOMoveY( GameSettings.Instance.ball_throw_height, duration / 2f ) );
 		sequence.Join( transform.DOMoveY( position.y, duration / 2f ).SetDelay( duration / 2f ) );
+		sequence.SetEase( GameSettings.Instance.ball_throw_ease );
 
 		thrown_sequence.Recycle( sequence, OnThrowComplete );
 	}
@@ -100,7 +101,7 @@ public class Ball : MonoBehaviour
 
 		transform.SetParent( null );
 		kick_sequence_movement = transform.DOJump( position, GameSettings.Instance.ball_kick_height, 1, GameSettings.Instance.ball_kick_duration )
-			.SetEase( Ease.Linear )
+			.SetEase( GameSettings.Instance.ball_kick_ease )
 			.OnComplete( OnKickComplete );
 
 		kick_tween_rotation = transform.DORotate( GameSettings.Instance.ball_kick_rotation.GiveRandom(), GameSettings.Instance.ball_kick_rotation_duration, RotateMode.FastBeyond360 );

@@ -30,11 +30,13 @@ MonoBehaviour:
   runner_look_speed: 100
   obstacle_runner_ragdoll_force: 300
   obstacle_runner_ragdoll_duration: 2
-  ball_throw_duration: 0.65
-  ball_throw_height: 2.5
+  ball_throw_duration: 0.4
+  ball_throw_height: 4
+  ball_throw_ease: 1
   ball_kick_duration: 5
   ball_kick_rotation_duration: 1
   ball_kick_height: 8.5
+  ball_kick_ease: 1
   ball_kick_rotation:
   - {x: 1.99, y: 6, z: 3.69}
   - {x: 123, y: 123, z: 342}
