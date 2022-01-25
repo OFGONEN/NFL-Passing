@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
-  maxLevelCount: 1
+  maxLevelCount: 6
   ui_Entity_Move_TweenDuration: 0.5
   ui_Entity_Fade_TweenDuration: 0.5
   ui_Entity_Scale_TweenDuration: 0.5
@@ -23,3 +23,26 @@ MonoBehaviour:
   swipeThreshold: 2
   debug_ui_text_float_height: 1
   debug_ui_text_float_duration: 1
+  runner_movement_speed_buff: 14
+  runner_ragdoll_force: 300
+  runner_movement_speed_dodge: 1
+  runner_movement_dodge_duration: 0.25
+  runner_look_speed: 100
+  obstacle_runner_ragdoll_force: 300
+  obstacle_runner_ragdoll_duration: 2
+  ball_throw_duration: 0.4
+  ball_throw_height: 4
+  ball_throw_ease: 1
+  ball_kick_duration: 2.5
+  ball_kick_rotation_duration: 1
+  ball_kick_height: 8.5
+  ball_kick_ease: 1
+  ball_kick_rotation:
+  - {x: 1.99, y: 6, z: 3.69}
+  - {x: 123, y: 123, z: 342}
+  - {x: 86, y: 284, z: 241}
+  camera_transition_duration: 1
+  camera_transition_FOV_duration: 0.5
+  camera_FOV_normal: 80
+  camera_FOV_buff: 100
+  camera_ball_follow_speed: 25

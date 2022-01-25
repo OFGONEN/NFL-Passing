@@ -19,6 +19,7 @@ namespace FFStudio
 
         [ Header( "Level Releated" ) ]
         public SharedFloatNotifier levelProgress;
+        public SharedFloatNotifier level_score;
 #endregion
 
 #region UnityAPI
@@ -41,13 +42,16 @@ namespace FFStudio
             levelLoadedListener.response   = LevelLoadedResponse;
             levelRevealedListener.response = LevelRevealedResponse;
             levelStartedListener.response  = LevelStartedResponse;
-        }
+
+			level_score.Subscribe( OnLevelScoreChange );
+		}
 #endregion
 
 #region Implementation
         private void LevelLoadedResponse()
         {
 			levelProgress.SharedValue = 0;
+			level_score.SharedValue   = 0;
 
 			var levelData = CurrentLevelData.Instance.levelData;
 
@@ -67,6 +71,11 @@ namespace FFStudio
         {
 
         }
+
+        private void OnLevelScoreChange()
+        {
+			levelProgress.SharedValue = level_score.SharedValue / CurrentLevelData.Instance.levelData.max_score;
+		}
 #endregion
     }
 }

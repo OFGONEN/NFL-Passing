@@ -1,14 +1,15 @@
 /* Created by and for usage of FF Studios (2021). */
 
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace FFStudio
 {
 	public class ParticleEffect : MonoBehaviour
 	{
 #region Fields
-		[ Header( "Fired Events" ) ]
-		public string alias;
+		[ BoxGroup( "Setup" ) ] public MultipleEventListenerDelegateResponse level_load_listener;
+		[ BoxGroup( "Setup" ) ] public string alias;
 
 		// Private Fields \\
 		private ParticleEffectPool particle_pool;
@@ -17,14 +18,25 @@ namespace FFStudio
 #endregion
 
 #region UnityAPI
+		private void OnEnable()
+		{
+			level_load_listener.OnEnable();
+		}
+
+		private void OnDisable()
+		{
+			level_load_listener.OnDisable();
+		}
 
 		private void Awake()
 		{
-			particles = GetComponent< ParticleSystem >();
+			particles = GetComponentInChildren< ParticleSystem >();
 
 			var mainParticle             = particles.main;
 			    mainParticle.stopAction  = ParticleSystemStopAction.Callback;
 			    mainParticle.playOnAwake = false;
+
+			level_load_listener.response = OnParticleSystemStopped;
 		}
 
 		private void OnParticleSystemStopped()

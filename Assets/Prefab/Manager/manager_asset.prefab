@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4364745634903858525}
   - component: {fileID: 4364745634903858524}
   m_Layer: 0
-  m_Name: manager_assetHolder
+  m_Name: manager_asset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,3 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSettings: {fileID: 11400000, guid: 109113abc7450a64db67bb41e0cc2dc0, type: 2}
   currentLevelData: {fileID: 11400000, guid: d35c98ef4c868d94f85bf38a98066033, type: 2}
+  obstacle_Runner_Pools:
+  - {fileID: 11400000, guid: 7a7d5a27270122940b292cd48f243e87, type: 2}
+  - {fileID: 11400000, guid: f28e8141eea0a4818ab3ab7dc753a864, type: 2}

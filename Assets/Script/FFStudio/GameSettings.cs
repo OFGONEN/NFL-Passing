@@ -1,6 +1,7 @@
 ﻿/* Created by and for usage of FF Studios (2021). */
 
 using UnityEngine;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 
 namespace FFStudio
@@ -30,6 +31,30 @@ namespace FFStudio
 
         [ BoxGroup( "Debug" ) ] public float debug_ui_text_float_height;
         [ BoxGroup( "Debug" ) ] public float debug_ui_text_float_duration;
+
+        [ BoxGroup( "Runner" ) ] public float runner_movement_speed_buff;
+        [ BoxGroup( "Runner" ) ] public float runner_ragdoll_force;
+        [ BoxGroup( "Runner" ) ] public float runner_movement_speed_dodge;
+        [ BoxGroup( "Runner" ) ] public float runner_movement_dodge_duration; //! Should be long as runner dodge animation
+        [ BoxGroup( "Runner" ) ] public float runner_look_speed;
+
+        [ BoxGroup( "Obstacle" ) ] public float obstacle_runner_ragdoll_force = 100f;
+        [ BoxGroup( "Obstacle" ) ] public float obstacle_runner_ragdoll_duration;
+
+        [ BoxGroup( "Ball" ) ] public float ball_throw_duration;
+        [ BoxGroup( "Ball" ) ] public float ball_throw_height;
+        [ BoxGroup( "Ball" ) ] public Ease ball_throw_ease = Ease.Linear;
+        [ BoxGroup( "Ball" ) ] public float ball_kick_duration;
+        [ BoxGroup( "Ball" ) ] public float ball_kick_rotation_duration;
+        [ BoxGroup( "Ball" ) ] public float ball_kick_height;
+        [ BoxGroup( "Ball" ) ] public Ease ball_kick_ease = Ease.Linear;
+        [ BoxGroup( "Ball" ) ] public Vector3[] ball_kick_rotation;
+
+        [ BoxGroup( "Camera" ) ] public float camera_transition_duration;
+        [ BoxGroup( "Camera" ) ] public float camera_transition_FOV_duration;
+        [ BoxGroup( "Camera" ) ] public float camera_FOV_normal;
+        [ BoxGroup( "Camera" ) ] public float camera_FOV_buff;
+        [ BoxGroup( "Camera" ) ] public float camera_ball_follow_speed;
 #endregion
 
 #region Implementation

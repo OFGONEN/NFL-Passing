@@ -10,5 +10,15 @@ public class AssetManager : MonoBehaviour
 #region Fields
 	public GameSettings gameSettings;
 	public CurrentLevelData currentLevelData;
+
+	public Obstacle_Runner_Pool[] obstacle_Runner_Pools;
+
+	private void Start()
+	{
+		for( var i = 0; i < obstacle_Runner_Pools.Length; i++ )
+		{
+			obstacle_Runner_Pools[ i ].InitPool( transform, false );
+		}
+	}
 #endregion
 }

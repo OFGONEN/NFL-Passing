@@ -16,6 +16,9 @@ namespace FFStudio
         
 #region Fields (Private, Auto-acquired)
         [ SerializeField ] private Rigidbody[] ragdollRigidbodies;
+        [ SerializeField ] private Collider[] ragdollRigidbody_Colliders;
+
+        private Rigidbody mainRigidbody;
 #endregion
 
 #region Properties
@@ -34,6 +37,15 @@ namespace FFStudio
 
             ragdollRigidbodies = ragdollRigidbodies.Except( excludeTheseRigidbodies ).ToArray();
 
+			mainRigidbody = ragdollRigidbodies[ 0 ];
+
+			ragdollRigidbody_Colliders = new Collider[ ragdollRigidbodies.Length ];
+
+			for( var i = 0; i < ragdollRigidbodies.Length; i++ )
+            {
+                ragdollRigidbody_Colliders[ i ] = ragdollRigidbodies[ i ].GetComponent< Collider >();
+            }
+
             if( deactivateOnStart )
                 Deactivate();
         }
@@ -43,16 +55,29 @@ namespace FFStudio
         [ Button() ]
         public void Activate()
         {
-            foreach( var rb in ragdollRigidbodies )
-                rb.isKinematic = false;
+            for( var i = 0; i < ragdollRigidbodies.Length; i++ )
+            {
+				ragdollRigidbodies        [ i ].isKinematic = false;
+				ragdollRigidbodies        [ i ].useGravity  = true;
+				ragdollRigidbody_Colliders[ i ].enabled     = true;
+			}
         }
         
         [ Button()]
         public void Deactivate()
         {
-            foreach( var rb in ragdollRigidbodies )
-                rb.isKinematic = true;
+            for( var i = 0; i < ragdollRigidbodies.Length; i++ )
+            {
+				ragdollRigidbodies        [ i ].isKinematic = true;
+				ragdollRigidbodies        [ i ].useGravity  = false;
+				ragdollRigidbody_Colliders[ i ].enabled     = false;
+			}
         }
+
+        public void GiveForce( Vector3 force, ForceMode mode )
+        {
+			mainRigidbody.AddForce( force, mode );
+		}
 #endregion
 
 #region Implementation

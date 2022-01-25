@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 453416092164099046}
   - component: {fileID: 453416092164098072}
   - component: {fileID: 453416092164098073}
+  - component: {fileID: 3277887388096886688}
   m_Layer: 5
   m_Name: image_interior_foreground
   m_TagString: Untagged
@@ -75,6 +76,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3277887388096886688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453416092164099047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfa241fe572bc84b8e01bfa83b03bee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedDataNotifier: {fileID: 11400000, guid: efed110f1e415924a95492a771f1a6ee, type: 2}
 --- !u!1 &453416092374961846
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,7 +100,6 @@ GameObject:
   - component: {fileID: 453416092374961833}
   - component: {fileID: 453416092374961835}
   - component: {fileID: 453416092374961832}
-  - component: {fileID: 8972054619498509272}
   m_Layer: 5
   m_Name: ui_loading_bar_with_text
   m_TagString: Untagged
@@ -155,19 +168,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8972054619498509272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453416092374961846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bfa241fe572bc84b8e01bfa83b03bee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedDataNotifier: {fileID: 11400000, guid: efed110f1e415924a95492a771f1a6ee, type: 2}
 --- !u!1 &3702581891566363931
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,8 +310,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e8a624cadd4d741639f0398e1d1c804b, type: 2}
+  m_sharedMaterial: {fileID: -9060056555989474509, guid: e8a624cadd4d741639f0398e1d1c804b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

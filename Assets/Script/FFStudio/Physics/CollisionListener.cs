@@ -1,6 +1,7 @@
 /* Created by and for usage of FF Studios (2021). */
 
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace FFStudio
 {
@@ -8,6 +9,7 @@ namespace FFStudio
 	{
 #region Fields (Private)
 		private event CollisionMessage collisionEvent;
+		private UnityEvent< Collision > collisionEvent_Unity;
 #endregion
 
 #region Properties
@@ -74,6 +76,7 @@ namespace FFStudio
         protected override void InvokeEvent( Collision collision )
 		{
 			collisionEvent?.Invoke( collision );
+			collisionEvent_Unity.Invoke( collision );
 		}
 #endregion
 
