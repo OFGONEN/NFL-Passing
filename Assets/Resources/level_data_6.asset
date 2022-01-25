@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea3c0b9fd00fd441b6cebc5941ee13b, type: 3}
   m_Name: level_data_6
   m_EditorClassIdentifier: 
-  sceneIndex: 6
+  sceneIndex: 7
   overrideAsActiveScene: 0
   max_score: 80
