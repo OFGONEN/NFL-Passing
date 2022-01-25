@@ -136,7 +136,7 @@ public class Ball : MonoBehaviour
 		ball_trail.emitting = false;
 		ball_trail.Clear();
 
-		thrown_particle_event.Raise( "ball", transform.position );
+		thrown_particle_event.Raise( "ball", transform.position, transform );
 	}
 #endregion
 
