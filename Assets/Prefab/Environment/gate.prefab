@@ -55,7 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle_event: {fileID: 11400000, guid: fe240f220ab36cc44923227184f9c2a7, type: 2}
   particleDatas:
-  - alias: gate
+  - alias: end_score_win
     parent: 0
     offset: {x: 0, y: 2, z: 0}
 --- !u!114 &7831976628199097713
