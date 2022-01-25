@@ -205,6 +205,9 @@ public class Runner : MonoBehaviour
 		has_Buff = true;
 		runner_mover.ChangeSpeed( GameSettings.Instance.runner_movement_speed_buff );
 		runner_animator.SetBool( "buffed", true );
+
+		if( has_Ball )
+			input_finger_down_listener.response = ExtensionMethods.EmptyMethod;
 	}
 
     private void BuffEndListener()
@@ -213,6 +216,10 @@ public class Runner : MonoBehaviour
 
 		runner_mover.DefaultSpeed();
 		runner_animator.SetBool( "buffed", false );
+
+		if( has_Ball )
+			input_finger_down_listener.response = ThrowBall;
+
 	}
 
 	private void OnDodgeComplete()
