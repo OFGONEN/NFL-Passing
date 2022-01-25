@@ -23,7 +23,7 @@ MonoBehaviour:
   swipeThreshold: 2
   debug_ui_text_float_height: 1
   debug_ui_text_float_duration: 1
-  runner_movement_speed_buff: 20
+  runner_movement_speed_buff: 14
   runner_ragdoll_force: 300
   runner_movement_speed_dodge: 1
   runner_movement_dodge_duration: 0.25
