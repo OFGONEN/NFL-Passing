@@ -161,6 +161,7 @@ MonoBehaviour:
   thrown_particle_event: {fileID: 11400000, guid: fe240f220ab36cc44923227184f9c2a7, type: 2}
   thrown_start_event: {fileID: 11400000, guid: 1a57f4582eb570a4a82a9d63a9009901, type: 2}
   thrown_end_event: {fileID: 11400000, guid: a96d682e34410c34784493c736864cfb, type: 2}
+  game_vibrate_event: {fileID: 11400000, guid: 285b7692a7c674609afe4141a039ab5c, type: 2}
 --- !u!114 &3840168481680307280
 MonoBehaviour:
   m_ObjectHideFlags: 0
