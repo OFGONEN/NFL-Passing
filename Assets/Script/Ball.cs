@@ -16,6 +16,7 @@ public class Ball : MonoBehaviour
 	[ BoxGroup( "Setup" ), SerializeField ] private ParticleSpawnEvent thrown_particle_event;
 	[ BoxGroup( "Setup" ), SerializeField ] private GameEvent thrown_start_event;
 	[ BoxGroup( "Setup" ), SerializeField ] private GameEvent thrown_end_event;
+	[ BoxGroup( "Setup" ), SerializeField ] private GameEvent game_vibrate_event;
 
 	private RecycledSequence thrown_sequence = new RecycledSequence();
 	private Sequence kick_sequence_movement;
@@ -137,6 +138,7 @@ public class Ball : MonoBehaviour
 		ball_trail.Clear();
 
 		thrown_particle_event.Raise( "ball", transform.position, transform );
+		game_vibrate_event.Raise();
 	}
 #endregion
 

@@ -12,6 +12,7 @@ namespace FFStudio
 		[ Header( "Event Listeners" ) ]
 		public EventListenerDelegateResponse loadNewLevelListener;
 		public EventListenerDelegateResponse resetLevelListener;
+		public EventListenerDelegateResponse vibrateListener;
 
 		[ Header( "Fired Events" ) ]
 		public GameEvent levelLoaded;
@@ -26,18 +27,21 @@ namespace FFStudio
 		{
 			loadNewLevelListener.OnEnable();
 			resetLevelListener.OnEnable();
+			vibrateListener.OnEnable();
 		}
 		
 		private void OnDisable()
 		{
 			loadNewLevelListener.OnDisable();
 			resetLevelListener.OnDisable();
+			vibrateListener.OnDisable();
 		}
 		
 		private void Awake()
 		{
 			loadNewLevelListener.response = LoadNewLevel;
 			resetLevelListener.response   = ResetLevel;
+			vibrateListener.response 	  = Handheld.Vibrate;
 		}
 
 		private void Start()

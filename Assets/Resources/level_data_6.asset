@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneIndex: 7
   overrideAsActiveScene: 0
-  max_score: 80
+  max_score: 100
